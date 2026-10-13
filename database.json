@@ -1,0 +1,229 @@
+{
+  "curriculum_version": "1.0",
+  "department": "Advisory & Consulting",
+  "weeks": [
+    {
+      "week_number": 40,
+      "year": 2026,
+      "topic_id": "top-101",
+      "topic_title": "Managing Client Expectations & Scope Creep",
+      "topic_desc": "Cách dùng từ ngữ khéo léo để từ chối yêu cầu ngoài phạm vi mà không làm mất lòng khách hàng doanh nghiệp.",
+      "level": "Intermediate",
+      "videos": [
+        {
+          "videoId": "vid-101-1",
+          "youtubeId": "8qhz4n8bIeU",
+          "title": "How to Say NO to Clients Professionally in English",
+          "channel": "Career English Hub",
+          "duration": "8 phút",
+          "summary": "Hướng dẫn 3 cấu trúc câu ngoại giao giúp tư vấn viên giải thích việc vượt ngân sách hoặc phạm vi dự án.",
+          "takeaway": "Luôn ghi nhận nhu cầu của khách hàng trước khi đề cập đến ràng buộc hợp đồng."
+        },
+        {
+          "videoId": "vid-101-2",
+          "youtubeId": "m2hG1i6sK0w",
+          "title": "Consulting Vocabulary: Handling Objections & Deadlocks",
+          "channel": "Business English Pod",
+          "duration": "11 phút",
+          "summary": "Bộ từ vựng và mẫu câu phản hồi khi khách hàng phản đối đề xuất giải pháp của nhóm tư vấn.",
+          "takeaway": "Sử dụng kỹ thuật Reframe (tái định hình vấn đề) thay vì đối đầu trực tiếp."
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "voc-101-1",
+          "phrase": "Scope Creep",
+          "phonetic": "/skoʊp kriːp/",
+          "meaning": "Hiện tượng dự án bị phình to phạm vi so với thỏa thuận ban đầu",
+          "context": "To avoid scope creep, we need to formally document these additional requests in a Change Order."
+        },
+        {
+          "id": "voc-101-2",
+          "phrase": "Push back constructively",
+          "phonetic": "/pʊʃ bæk kənˈstrʌktɪvli/",
+          "meaning": "Phản hồi từ chối một cách khéo léo, mang tính xây dựng",
+          "context": "The lead consultant had to push back constructively when the client requested a 50% shorter deadline."
+        },
+        {
+          "id": "voc-101-3",
+          "phrase": "Align on expectations",
+          "phonetic": "/əˈlaɪn ɒn ˌɛkspekˈteɪʃənz/",
+          "meaning": "Thống nhất và đồng thuận về kỳ vọng đôi bên",
+          "context": "Before proceeding with the audit, let us align on the expected deliverables."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Thuật ngữ nào chỉ hiện tượng yêu cầu dự án phình to quá mức ngoài cam kết ban đầu?",
+          "options": ["Scope Creep", "Deadlock Delay"],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "week_number": 41,
+      "year": 2026,
+      "topic_id": "top-102",
+      "topic_title": "Delivering C-Level Executive Presentations",
+      "topic_desc": "Cấu trúc bài thuyết trình kim tự tháp (Minto Pyramid) và ngôn ngữ thuyết phục ban giám đốc điều hành.",
+      "level": "Advanced",
+      "videos": [
+        {
+          "videoId": "vid-102-1",
+          "youtubeId": "V8eLdbKXGzk",
+          "title": "Structuring Presentations Like a McKinsey Consultant",
+          "channel": "Firm Learning",
+          "duration": "14 phút",
+          "summary": "Phân tích phương pháp Top-down Communication và cách chọn từ đắt giá khi gặp C-Levels.",
+          "takeaway": "Đưa khuyến nghị cốt lõi (Bottom-line) lên trước, phân tích dữ liệu chứng minh phía sau."
+        },
+        {
+          "videoId": "vid-102-2",
+          "youtubeId": "wp6cnp1kR4M",
+          "title": "Executive Presence & Boardroom Communication",
+          "channel": "Executive Speaking",
+          "duration": "9 phút",
+          "summary": "Kỹ thuật kiểm soát tốc độ nói và lựa chọn động từ mạnh mẽ khi trình bày báo cáo chiến lược.",
+          "takeaway": "Nói ngắn gọn, dừng đúng nhịp và hướng câu trả lời thẳng vào ROI (hiệu quả đầu tư)."
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "voc-102-1",
+          "phrase": "Bottom-line upfront (BLUF)",
+          "phonetic": "/ˈbɑː.t̬əm laɪn ʌpˈfrʌnt/",
+          "meaning": "Đưa kết luận/khuyến nghị quan trọng nhất lên đầu câu chuyện",
+          "context": "In our executive briefing, always use the BLUF principle to respect the CEO's limited time."
+        },
+        {
+          "id": "voc-102-2",
+          "phrase": "Actionable recommendations",
+          "phonetic": "/ˈæk.ʃən.ə.bəl ˌrek.ə.menˈdeɪ.ʃənz/",
+          "meaning": "Các khuyến nghị có tính khả thi, áp dụng được ngay vào thực tế",
+          "context": "The board appreciated our report because it provided actionable recommendations, not just theory."
+        },
+        {
+          "id": "voc-102-3",
+          "phrase": "Executive summary",
+          "phonetic": "/ɪɡˈzek.jə.tɪv ˈsʌm.ər.i/",
+          "meaning": "Bản tóm tắt quản trị dành cho cấp lãnh đạo",
+          "context": "Make sure the key findings fit within a single-page executive summary."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Nguyên tắc BLUF (Bottom-line upfront) khuyên tư vấn viên điều gì khi họp với ban lãnh đạo?",
+          "options": ["Giải thích dữ liệu chi tiết trước khi chốt hạ", "Đưa khuyến nghị quan trọng nhất lên đầu tiên"],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "week_number": 42,
+      "year": 2026,
+      "topic_id": "top-103",
+      "topic_title": "Commercial Negotiation & Price Pushback",
+      "topic_desc": "Nghệ thuật thương thảo chi phí dịch vụ, bảo vệ giá trị giải pháp và xử lý yêu cầu giảm giá từ khách hàng.",
+      "level": "Intermediate",
+      "videos": [
+        {
+          "videoId": "vid-103-1",
+          "youtubeId": "siW0MYq6Xcg",
+          "title": "How to Negotiate Pricing without Sounding Defensive",
+          "channel": "Sales & Advisory Institute",
+          "duration": "10 phút",
+          "summary": "Cách gắn liền mức giá với giá trị mang lại (Value-based Selling) thay vì nhượng bộ hạ giá ngay lập tức.",
+          "takeaway": "Nếu phải nhượng bộ về giá, luôn yêu cầu cắt giảm một phần phạm vi công việc tương ứng."
+        },
+        {
+          "videoId": "vid-103-2",
+          "youtubeId": "KMb_aPq-yqA",
+          "title": "Handling 'It's Too Expensive' Objections",
+          "channel": "Consulting Mastery",
+          "duration": "8 phút",
+          "summary": "Phân tích 3 kịch bản giải tỏa lo ngại ngân sách của bên mua mà vẫn giữ vững uy tín tư vấn.",
+          "takeaway": "Tập trung vào chi phí rủi ro nếu khách hàng không triển khai giải pháp (Cost of Inaction)."
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "voc-103-1",
+          "phrase": "Value proposition",
+          "phonetic": "/ˈvæl.juː ˌprɒp.əˈzɪʃ.ən/",
+          "meaning": "Tuyên bố giá trị vượt trội mà dịch vụ/giải pháp mang lại cho khách",
+          "context": "We need to clarify our value proposition before discussing contractual fees."
+        },
+        {
+          "id": "voc-103-2",
+          "phrase": "Concession strategy",
+          "phonetic": "/kənˈseʃ.ən ˈstræt.ə.dʒi/",
+          "meaning": "Chiến lược nhượng bộ có qua có lại trong đàm phán",
+          "context": "Never give a concession without asking for an alternative commitment in return."
+        },
+        {
+          "id": "voc-103-3",
+          "phrase": "Cost of inaction",
+          "phonetic": "/kɒst əv ɪnˈæk.ʃən/",
+          "meaning": "Thiệt hại hoặc chi phí rủi ro nếu doanh nghiệp trì hoãn triển khai",
+          "context": "Help the client understand that the cost of inaction is significantly higher than our consulting retainer."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Khi khách hàng yêu cầu giảm giá, nguyên tắc nhượng bộ chuẩn là gì?",
+          "options": ["Đồng ý giảm giá ngay để chốt deal", "Giữ vững giá trị hoặc chỉ giảm giá khi cắt giảm phạm vi công việc"],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "week_number": 43,
+      "year": 2026,
+      "topic_id": "top-104",
+      "topic_title": "Post-Meeting Follow-Up & Action Tracking",
+      "topic_desc": "Chuẩn hóa kỹ năng viết biên bản cuộc họp, chốt các đầu việc bàn giao (Action Items) và giữ nhịp độ dự án.",
+      "level": "Pre-Intermediate",
+      "videos": [
+        {
+          "videoId": "vid-104-1",
+          "youtubeId": "zF0D6Dq1rE8",
+          "title": "Writing High-Impact Meeting Summary Emails",
+          "channel": "Professional Communication",
+          "duration": "7 phút",
+          "summary": "Cấu trúc email 3 phần chuẩn quốc tế: Tóm tắt đồng thuận, Người chịu trách nhiệm, và Hạn chót.",
+          "takeaway": "Gửi email tóm tắt trong vòng tối đa 4 giờ sau khi cuộc họp kết thúc."
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "voc-104-1",
+          "phrase": "Action items",
+          "phonetic": "/ˈæk.ʃən ˌaɪ.təmz/",
+          "meaning": "Các đầu mục công việc cụ thể cần thực hiện sau cuộc họp",
+          "context": "Each action item must have an assigned owner and a strict deadline."
+        },
+        {
+          "id": "voc-104-2",
+          "phrase": "Follow up on deliverables",
+          "phonetic": "/ˈfɒl.əʊ ʌp ɒn dɪˈlɪv.ər.ə.bəlz/",
+          "meaning": "Đôn đốc và theo dõi tiến độ các kết quả bàn giao",
+          "context": "I will follow up on the missing deliverables by Friday afternoon."
+        },
+        {
+          "id": "voc-104-3",
+          "phrase": "Sign-off",
+          "phonetic": "/ˈsaɪn ɒf/",
+          "meaning": "Sự phê duyệt/ký duyệt chính thức từ các bên liên quan",
+          "context": "We need written sign-off from their project director before initiating Phase 2."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Mỗi 'Action item' trong email sau cuộc họp bắt buộc phải đi kèm thông tin nào?",
+          "options": ["Người chịu trách nhiệm và hạn chót (Deadline)", "Chỉ cần ghi nội dung công việc"],
+          "correct_index": 0
+        }
+      ]
+    }
+  ]
+}
