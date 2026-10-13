@@ -1,231 +1,424 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BizEnglish Weekly Curator - Advisory Department</title>
-  <!-- Tailwind CSS -->
+  <title>BizEnglish Curator - Slate Edition</title>
+  <!-- Tailwind CSS CDN với Dark Mode Class -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <!-- Phosphor Icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"/>
   <style>
-    .aspect-video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 0.75rem;
+    /* Flashcard 3D Flip Styles */
+    .perspective-1000 {
+      perspective: 1000px;
     }
-    .aspect-video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    /* Cinema Mode Overlay */
+    .cinema-active {
+      max-width: 100% !important;
+      grid-column: span 12 / span 12 !important;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col font-sans transition-colors duration-200 pb-16 md:pb-0">
 
-  <!-- TOP NAVBAR -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white text-xl font-bold shadow-sm shadow-blue-200">
+  <!-- TOP APP BAR -->
+  <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo & Bộ chọn tuần -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-sm tracking-wider">
           BE
         </div>
         <div>
-          <h1 class="text-base font-bold text-slate-900 leading-tight">BizEnglish Weekly Curator</h1>
-          <p class="text-xs text-slate-500">Khối Tư vấn (Advisory Department)</p>
-        </div>
-      </div>
-
-      <!-- Quick Metrics & User Info -->
-      <div class="flex items-center space-x-4">
-        <div class="hidden sm:flex items-center space-x-2 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-full text-amber-700 text-xs font-semibold">
-          <i class="ph-bold ph-fire text-amber-500 text-base"></i>
-          <span>Weekly Streak: <strong id="streak-counter">4</strong> tuần</span>
-        </div>
-        <div class="flex items-center space-x-3 border-l pl-4 border-slate-200">
-          <div class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
-            TV
-          </div>
-          <div class="hidden md:block text-left">
-            <p class="text-xs font-semibold text-slate-800">Trâm Võ</p>
-            <p class="text-[11px] text-slate-500">Advisory Executive</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN APP CONTAINER -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-    <!-- LEFT COLUMN: MAIN LESSON & VIDEO PLAYER (8 COLS) -->
-    <div class="lg:col-span-8 space-y-6">
-      
-      <!-- Weekly Topic Card & Selector -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
-              <i class="ph-bold ph-calendar-check"></i> <span id="week-badge">Tuần 40</span>
-            </span>
-            <span id="level-badge" class="text-xs text-slate-500 font-medium">Độ khó: <span class="font-semibold text-slate-700">Intermediate</span></span>
+            <span class="text-sm font-bold text-slate-900 dark:text-white">BizEnglish Curator</span>
+            <span class="hidden sm:inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Advisory</span>
           </div>
-
-          <!-- Bộ chọn tuần học từ Database -->
-          <div class="flex items-center gap-1 text-xs">
-            <span class="text-slate-400 mr-1">Chọn tuần:</span>
-            <select id="week-select" onchange="changeWeek(this.value)" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg px-2.5 py-1 focus:ring-blue-500 focus:border-blue-500 font-semibold cursor-pointer">
+          <div class="flex items-center gap-1.5 mt-0.5">
+            <select id="week-select" onchange="changeWeek(this.value)" class="text-xs bg-transparent font-medium text-slate-500 dark:text-slate-400 focus:outline-none cursor-pointer border-b border-dashed border-slate-300 dark:border-slate-700 pb-0.5">
               <!-- Render by JS -->
             </select>
           </div>
         </div>
+      </div>
 
-        <h2 id="current-topic-title" class="text-xl font-bold text-slate-900">
-          Đang tải bài học...
-        </h2>
-        <p id="current-topic-desc" class="text-sm text-slate-600">
+      <!-- Quick Controls: Cinema Mode, Theme Toggle, Profile -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Nút Cinema Mode -->
+        <button onclick="toggleCinemaMode()" title="Focus / Cinema Mode" class="p-2 sm:px-3 sm:py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition">
+          <i class="ph-bold ph-presentation text-base text-sky-500"></i>
+          <span class="hidden sm:inline" id="cinema-btn-text">Focus Mode</span>
+        </button>
+
+        <!-- Nút Chuyển Dark / Light Mode -->
+        <button onclick="toggleDarkMode()" title="Đổi giao diện sáng/tối" class="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition">
+          <i id="theme-icon" class="ph-bold ph-moon text-base"></i>
+        </button>
+
+        <!-- Streak Counter -->
+        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-bold">
+          <i class="ph-bold ph-fire text-base"></i>
+          <span>4w Streak</span>
+        </div>
+
+        <!-- Profile Avatar -->
+        <div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-200 ml-1">
+          TV
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-6 transition-all duration-300">
+
+    <!-- KHU VỰC VIDEO & BÀI HỌC CHÍNH (8 COLS / 12 COLS IN CINEMA) -->
+    <section id="video-section" class="lg:col-span-8 space-y-5 transition-all duration-300">
+      
+      <!-- Tiêu đề chủ đề -->
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center gap-2">
+          <span id="level-badge" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            Intermediate
+          </span>
+          <span id="week-badge" class="text-xs text-slate-400 dark:text-slate-500 font-medium">Tuần 40 (2026)</span>
+        </div>
+        <h1 id="current-topic-title" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+          Đang tải nội dung...
+        </h1>
+        <p id="current-topic-desc" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
           ...
         </p>
       </div>
 
-      <!-- Video Player Section -->
-      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
-        <div class="aspect-video-container bg-slate-900">
+      <!-- Khung Video Nhúng -->
+      <div class="bg-black rounded-2xl overflow-hidden shadow-lg border border-slate-200/50 dark:border-slate-800">
+        <div class="relative w-full pb-[56.25%] h-0">
           <iframe 
             id="video-player"
+            class="absolute top-0 left-0 w-full h-full"
             src="" 
-            title="Video bài học tiếng Anh tư vấn" 
+            title="Video bài học" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
           </iframe>
         </div>
+      </div>
 
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-          <div>
-            <h3 id="video-title" class="text-base font-bold text-slate-900">
-              Tiêu đề bài học
-            </h3>
-            <p id="video-meta" class="text-xs text-slate-500 mt-0.5">Kênh: ... • Thời lượng: ...</p>
-          </div>
-
-          <button id="btn-complete-lesson" onclick="toggleCompleteCurrentVideo()" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm bg-blue-600 hover:bg-blue-700 text-white">
-            <i class="ph-bold ph-check-circle"></i>
+      <!-- Action Bar dưới Video -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div>
+          <h2 id="video-title" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white line-clamp-1">
+            ...
+          </h2>
+          <p id="video-meta" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">...</p>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <button id="btn-complete-lesson" onclick="toggleCompleteCurrentVideo()" class="w-full sm:w-auto px-4 py-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 shadow-sm">
+            <i class="ph-bold ph-check-circle text-base"></i>
             <span>Đánh dấu hoàn thành</span>
           </button>
         </div>
-
-        <!-- Takeaway Note -->
-        <div class="p-3.5 bg-slate-50 border border-slate-200/60 rounded-xl">
-          <p class="text-xs font-semibold text-slate-700 mb-1 flex items-center gap-1.5">
-            <i class="ph-bold ph-lightbulb text-amber-500"></i> Điểm chạm cốt lõi (Key Takeaway):
-          </p>
-          <p id="video-takeaway" class="text-xs text-slate-600 leading-relaxed">
-            ...
-          </p>
-        </div>
       </div>
 
-      <!-- Interactive Mini Quiz -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
-        <div class="flex items-center justify-between border-b pb-3 border-slate-100">
-          <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-            <i class="ph-bold ph-check-square-offset text-blue-600"></i> Mini Quiz: Ôn Tập Nhanh
-          </h3>
-          <span class="text-xs text-slate-400">Kiểm tra mức độ hiểu bài</span>
+      <!-- Key Takeaway Box -->
+      <div class="p-4 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80">
+        <div class="flex items-center gap-2 mb-1">
+          <i class="ph-bold ph-lightbulb text-amber-500 text-base"></i>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Điểm cốt lõi (Key Takeaway)</span>
         </div>
-
-        <div class="space-y-3" id="quiz-container">
-          <!-- Render by JS -->
-        </div>
+        <p id="video-takeaway" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed pl-6">
+          ...
+        </p>
       </div>
-    </div>
 
-    <!-- RIGHT COLUMN: PLAYLIST & VOCAB VAULT (4 COLS) -->
-    <div class="lg:col-span-4 space-y-6">
-
-      <!-- Weekly Playlist Selector -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
-        <h3 class="text-sm font-bold text-slate-900 flex items-center justify-between">
-          <span class="flex items-center gap-2">
-            <i class="ph-bold ph-playlist text-blue-600"></i> Video trong tuần
+      <!-- Mini Quiz Ôn tập -->
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+        <div class="flex items-center justify-between border-b pb-2 border-slate-100 dark:border-slate-800">
+          <span class="text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <i class="ph-bold ph-pencil-simple-line text-sky-500"></i> Mini Quiz 3 Phút
           </span>
-          <span id="completed-count" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
-            0/0 Đã xong
-          </span>
-        </h3>
-
-        <div id="video-list" class="space-y-2 pt-1">
+          <span class="text-[11px] text-slate-400">Kiểm tra độ hiểu</span>
+        </div>
+        <div id="quiz-container" class="space-y-3 pt-1">
           <!-- Render by JS -->
         </div>
       </div>
 
-      <!-- Consulting Key Expressions (Vocab Vault) -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-            <i class="ph-bold ph-bookmarks text-blue-600"></i> Sổ tay thuật ngữ tuần
-          </h3>
-          <span class="text-xs text-blue-600 font-medium">Bấm bookmark để lưu</span>
-        </div>
+    </section>
 
-        <div id="vocab-container" class="space-y-3">
+    <!-- KHU VỰC CỘT PHỤ DẠNG TABS: PLAYLIST / TỪ VỰNG / FLASHCARDS (4 COLS) -->
+    <aside id="side-section" class="lg:col-span-4 space-y-4">
+
+      <!-- Navigation Tabs -->
+      <div class="flex items-center p-1 bg-slate-200/80 dark:bg-slate-800/80 rounded-xl text-xs font-semibold">
+        <button onclick="switchTab('playlist')" id="tab-btn-playlist" class="flex-1 py-2 rounded-lg text-slate-900 dark:text-white bg-white dark:bg-slate-900 shadow-sm transition">
+          Playlist
+        </button>
+        <button onclick="switchTab('flashcards')" id="tab-btn-flashcards" class="flex-1 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+          Flashcard 3D
+        </button>
+        <button onclick="switchTab('vault')" id="tab-btn-vault" class="flex-1 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+          Sổ từ vựng
+        </button>
+      </div>
+
+      <!-- TAB 1: DANH SÁCH BÀI HỌC (PLAYLIST) -->
+      <div id="tab-panel-playlist" class="space-y-3">
+        <div class="flex items-center justify-between text-xs px-1 text-slate-500 dark:text-slate-400">
+          <span>Tiến độ tuần</span>
+          <span id="completed-count" class="font-bold text-slate-700 dark:text-slate-200">0/0</span>
+        </div>
+        <div id="video-list" class="space-y-2">
           <!-- Render by JS -->
         </div>
       </div>
 
-      <!-- Saved Vault Counter -->
-      <div class="p-4 rounded-xl border border-dashed border-slate-300 bg-slate-50/70 text-center">
-        <p class="text-xs text-slate-500">Đã bookmark trong Personal Vocab Vault:</p>
-        <p class="text-xl font-bold text-slate-800 mt-1"><span id="saved-vocab-count">0</span> từ vựng</p>
+      <!-- TAB 2: FLASHCARD 3D LẬT THẺ & AUDIO -->
+      <div id="tab-panel-flashcards" class="hidden space-y-4">
+        <div class="flex items-center justify-between text-xs px-1">
+          <span class="text-slate-500 dark:text-slate-400">Nhấp vào thẻ để lật</span>
+          <span id="flashcard-index-indicator" class="font-mono text-slate-400">1/3</span>
+        </div>
+
+        <!-- 3D Card Container -->
+        <div class="perspective-1000 w-full h-72">
+          <div id="flashcard-element" onclick="flipFlashcard()" class="w-full h-full relative cursor-pointer transform-style-3d transition-transform duration-500 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            
+            <!-- Mặt trước (Front) -->
+            <div class="absolute inset-0 w-full h-full backface-hidden p-6 flex flex-col justify-between rounded-2xl">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-sky-50 dark:bg-sky-950 text-sky-600 dark:text-sky-400">Term</span>
+                <button onclick="event.stopPropagation(); speakWord()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-sky-500 transition">
+                  <i class="ph-bold ph-speaker-high text-base"></i>
+                </button>
+              </div>
+
+              <div class="text-center space-y-2">
+                <h3 id="card-front-phrase" class="text-xl font-bold text-slate-900 dark:text-white">...</h3>
+                <p id="card-front-phonetic" class="text-xs font-mono text-slate-400">...</p>
+              </div>
+
+              <p class="text-[11px] text-center text-slate-400 flex items-center justify-center gap-1">
+                <i class="ph-bold ph-arrow-counter-clockwise"></i> Chạm để xem nghĩa & ngữ cảnh
+              </p>
+            </div>
+
+            <!-- Mặt sau (Back) -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 p-6 flex flex-col justify-between rounded-2xl bg-slate-900 dark:bg-slate-800 text-white">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Ý nghĩa</span>
+                <span class="text-[10px] text-slate-400 font-mono">Tư vấn thực chiến</span>
+              </div>
+
+              <div class="space-y-3">
+                <p id="card-back-meaning" class="text-sm font-semibold text-slate-100">...</p>
+                <p id="card-back-context" class="text-xs text-slate-300 italic border-l-2 border-sky-400 pl-3">"..."</p>
+              </div>
+
+              <p class="text-[11px] text-center text-slate-400 flex items-center justify-center gap-1">
+                <i class="ph-bold ph-arrow-counter-clockwise"></i> Chạm để quay lại từ vựng
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Điều khiển qua lại Flashcard -->
+        <div class="flex items-center justify-between gap-3 pt-2">
+          <button onclick="prevFlashcard()" class="flex-1 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center gap-1 transition">
+            <i class="ph-bold ph-caret-left"></i> Trước
+          </button>
+          <button onclick="nextFlashcard()" class="flex-1 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center gap-1 transition">
+            Sau <i class="ph-bold ph-caret-right"></i>
+          </button>
+        </div>
       </div>
 
-    </div>
+      <!-- TAB 3: SỔ TAY TỪ VỰNG & BỘ LỌC BOOKMARK -->
+      <div id="tab-panel-vault" class="hidden space-y-3">
+        <div class="flex items-center justify-between pb-1">
+          <button onclick="toggleVaultFilter()" id="vault-filter-btn" class="text-xs px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-semibold flex items-center gap-1.5 transition">
+            <i class="ph-bold ph-funnel"></i> <span>Tất cả từ vựng</span>
+          </button>
+          <span class="text-xs text-slate-400">Đã lưu: <strong id="saved-counter" class="text-slate-800 dark:text-white">0</strong></span>
+        </div>
+
+        <div id="vocab-container" class="space-y-2 max-h-[500px] overflow-y-auto pr-1">
+          <!-- Render by JS -->
+        </div>
+      </div>
+
+    </aside>
   </main>
 
-  <!-- JAVASCRIPT: TỰ ĐỘNG TẢI TỪ DATABASE.JSON -->
+  <!-- MOBILE BOTTOM NAVIGATION (Thanh điều hướng cố định dưới đáy mobile giống Elsa/Duolingo) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 z-40 flex items-center justify-around px-2">
+    <button onclick="mobileNav('lesson')" id="m-btn-lesson" class="flex flex-col items-center gap-1 text-slate-900 dark:text-white font-semibold">
+      <i class="ph-bold ph-play-circle text-xl"></i>
+      <span class="text-[10px]">Bài học</span>
+    </button>
+    <button onclick="mobileNav('flashcards')" id="m-btn-flashcards" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-900 dark:hover:text-white">
+      <i class="ph-bold ph-cards text-xl"></i>
+      <span class="text-[10px]">Flashcard</span>
+    </button>
+    <button onclick="mobileNav('vault')" id="m-btn-vault" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-900 dark:hover:text-white">
+      <i class="ph-bold ph-bookmark-simple text-xl"></i>
+      <span class="text-[10px]">Sổ từ vựng</span>
+    </button>
+    <button onclick="toggleCinemaMode()" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-900 dark:hover:text-white">
+      <i class="ph-bold ph-presentation text-xl text-sky-500"></i>
+      <span class="text-[10px]">Focus</span>
+    </button>
+  </nav>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
   <script>
     let appData = null;
     let currentWeekIndex = 0;
     let currentVideoIndex = 0;
-    let completedVideos = new Set();
-    let savedVocabs = new Set();
+    let currentCardIndex = 0;
+    let isFlipped = false;
+    let onlySavedFilter = false;
+    let isCinemaMode = false;
 
-    // Tải dữ liệu từ database.json
+    let completedVideos = new Set(JSON.parse(localStorage.getItem('biz_completed') || '[]'));
+    let savedVocabs = new Set(JSON.parse(localStorage.getItem('biz_saved') || '[]'));
+
+    // 1. Quản lý Theme Dark / Light
+    function initTheme() {
+      const savedTheme = localStorage.getItem('biz_theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-icon').className = 'ph-bold ph-sun text-base text-amber-400';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('theme-icon').className = 'ph-bold ph-moon text-base';
+      }
+    }
+
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('biz_theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-icon').className = isDark 
+        ? 'ph-bold ph-sun text-base text-amber-400' 
+        : 'ph-bold ph-moon text-base';
+    }
+
+    // 2. Cinema / Focus Mode
+    function toggleCinemaMode() {
+      isCinemaMode = !isCinemaMode;
+      const videoSection = document.getElementById('video-section');
+      const sideSection = document.getElementById('side-section');
+      const cinemaBtnText = document.getElementById('cinema-btn-text');
+
+      if (isCinemaMode) {
+        videoSection.classList.add('cinema-active');
+        sideSection.classList.add('hidden');
+        if (cinemaBtnText) cinemaBtnText.innerText = "Thoát Focus";
+      } else {
+        videoSection.classList.remove('cinema-active');
+        sideSection.classList.remove('hidden');
+        if (cinemaBtnText) cinemaBtnText.innerText = "Focus Mode";
+      }
+    }
+
+    // 3. Quản lý Tabs
+    function switchTab(tabName) {
+      ['playlist', 'flashcards', 'vault'].forEach(t => {
+        document.getElementById(`tab-panel-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-btn-${t}`);
+        btn.className = "flex-1 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition";
+      });
+
+      document.getElementById(`tab-panel-${tabName}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+      activeBtn.className = "flex-1 py-2 rounded-lg text-slate-900 dark:text-white bg-white dark:bg-slate-900 shadow-sm transition";
+
+      if (tabName === 'flashcards') {
+        currentCardIndex = 0;
+        updateFlashcard();
+      }
+    }
+
+    function mobileNav(tab) {
+      if (isCinemaMode) toggleCinemaMode();
+      
+      const vSection = document.getElementById('video-section');
+      const sSection = document.getElementById('side-section');
+
+      if (tab === 'lesson') {
+        vSection.classList.remove('hidden');
+        sSection.classList.add('hidden');
+      } else {
+        vSection.classList.add('hidden');
+        sSection.classList.remove('hidden');
+        switchTab(tab);
+      }
+    }
+
+    // 4. Khởi chạy App & nạp database.json
     async function initApp() {
+      initTheme();
       try {
         const res = await fetch('database.json');
         appData = await res.json();
         
-        // Tạo danh sách chọn tuần
         const select = document.getElementById('week-select');
         select.innerHTML = '';
         appData.weeks.forEach((w, idx) => {
           const opt = document.createElement('option');
           opt.value = idx;
-          opt.innerText = `Tuần ${w.week_number} - ${w.topic_title.substring(0, 24)}...`;
+          opt.innerText = `Tuần ${w.week_number} - ${w.topic_title.substring(0, 20)}...`;
           select.appendChild(opt);
         });
 
         loadWeek(0);
       } catch (err) {
-        console.error("Không thể tải database.json:", err);
-        document.getElementById('current-topic-title').innerText = "Vui lòng kiểm tra tệp database.json";
+        console.error("Lỗi khi tải database.json:", err);
+        document.getElementById('current-topic-title').innerText = "Vui lòng kiểm tra lại tệp database.json";
       }
     }
 
-    // Nạp tuần học được chọn
     function loadWeek(weekIdx) {
       currentWeekIndex = parseInt(weekIdx);
       currentVideoIndex = 0;
       const week = appData.weeks[currentWeekIndex];
 
       document.getElementById('week-badge').innerText = `Tuần ${week.week_number} (${week.year})`;
-      document.getElementById('level-badge').innerHTML = `Độ khó: <span class="font-semibold text-slate-700">${week.level}</span>`;
+      document.getElementById('level-badge').innerText = week.level;
       document.getElementById('current-topic-title').innerText = week.topic_title;
       document.getElementById('current-topic-desc').innerText = week.topic_desc;
 
@@ -233,12 +426,14 @@
       selectVideo(0);
       renderVocabList();
       renderQuiz();
+      updateFlashcard();
     }
 
     function changeWeek(idx) {
       loadWeek(idx);
     }
 
+    // 5. Video Player & Checklist
     function renderVideoList() {
       const container = document.getElementById('video-list');
       container.innerHTML = '';
@@ -253,24 +448,24 @@
         const item = document.createElement('div');
         item.className = `p-3 rounded-xl cursor-pointer border transition flex items-start gap-3 ${
           isCurrent 
-            ? 'bg-blue-50/70 border-blue-200' 
-            : 'bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50'
+            ? 'bg-sky-50/60 dark:bg-sky-950/30 border-sky-200 dark:border-sky-800' 
+            : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-800'
         }`;
         item.onclick = () => selectVideo(idx);
 
         item.innerHTML = `
           <div class="mt-0.5">
-            <i class="ph-bold ${isDone ? 'ph-check-circle text-emerald-600' : 'ph-circle text-slate-300'} text-base"></i>
+            <i class="ph-bold ${isDone ? 'ph-check-circle text-emerald-500' : 'ph-circle text-slate-300 dark:text-slate-600'} text-base"></i>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="text-xs font-semibold ${isCurrent ? 'text-blue-900 font-bold' : 'text-slate-800'} line-clamp-1">${vid.title}</p>
+            <p class="text-xs font-semibold ${isCurrent ? 'text-sky-900 dark:text-sky-300 font-bold' : 'text-slate-800 dark:text-slate-200'} line-clamp-1">${vid.title}</p>
             <p class="text-[11px] text-slate-400 mt-0.5">${vid.duration} • ${vid.channel}</p>
           </div>
         `;
         container.appendChild(item);
       });
 
-      document.getElementById('completed-count').innerText = `${doneCount}/${videos.length} Đã xong`;
+      document.getElementById('completed-count').innerText = `${doneCount}/${videos.length} đã xong`;
     }
 
     function selectVideo(idx) {
@@ -279,24 +474,24 @@
 
       document.getElementById('video-player').src = `https://www.youtube.com/embed/${vid.youtubeId}?autoplay=1`;
       document.getElementById('video-title').innerText = vid.title;
-      document.getElementById('video-meta').innerText = `Kênh: ${vid.channel} • Thời lượng: ${vid.duration}`;
+      document.getElementById('video-meta').innerText = `Kênh: ${vid.channel} • ${vid.duration}`;
       document.getElementById('video-takeaway').innerText = vid.takeaway;
 
-      updateCompleteBtn();
+      updateCompleteBtnState();
       renderVideoList();
     }
 
-    function updateCompleteBtn() {
+    function updateCompleteBtnState() {
       const vid = appData.weeks[currentWeekIndex].videos[currentVideoIndex];
       const btn = document.getElementById('btn-complete-lesson');
       const isDone = completedVideos.has(vid.videoId);
 
       if (isDone) {
-        btn.className = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all border border-emerald-300 bg-emerald-50 text-emerald-700";
-        btn.innerHTML = `<i class="ph-bold ph-check text-emerald-600"></i> Đã hoàn thành`;
+        btn.className = "w-full sm:w-auto px-4 py-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300";
+        btn.innerHTML = `<i class="ph-bold ph-check text-emerald-500 text-base"></i> Đã hoàn thành`;
       } else {
-        btn.className = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm bg-blue-600 hover:bg-blue-700 text-white";
-        btn.innerHTML = `<i class="ph-bold ph-check-circle"></i> Đánh dấu hoàn thành`;
+        btn.className = "w-full sm:w-auto px-4 py-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 shadow-sm transition";
+        btn.innerHTML = `<i class="ph-bold ph-check-circle text-base"></i> Đánh dấu hoàn thành`;
       }
     }
 
@@ -307,34 +502,94 @@
       } else {
         completedVideos.add(vid.videoId);
       }
-      updateCompleteBtn();
+      localStorage.setItem('biz_completed', JSON.stringify([...completedVideos]));
+      updateCompleteBtnState();
       renderVideoList();
     }
 
+    // 6. Flashcard 3D & Speech Audio
+    function updateFlashcard() {
+      const vocabs = appData.weeks[currentWeekIndex].vocabulary;
+      if (!vocabs || vocabs.length === 0) return;
+
+      const card = vocabs[currentCardIndex];
+      const cardEl = document.getElementById('flashcard-element');
+      
+      // Reset về mặt trước
+      isFlipped = false;
+      cardEl.classList.remove('rotate-y-180');
+
+      document.getElementById('card-front-phrase').innerText = card.phrase;
+      document.getElementById('card-front-phonetic').innerText = card.phonetic;
+      document.getElementById('card-back-meaning').innerText = card.meaning;
+      document.getElementById('card-back-context').innerText = `"${card.context}"`;
+      document.getElementById('flashcard-index-indicator').innerText = `${currentCardIndex + 1}/${vocabs.length}`;
+    }
+
+    function flipFlashcard() {
+      isFlipped = !isFlipped;
+      const cardEl = document.getElementById('flashcard-element');
+      if (isFlipped) {
+        cardEl.classList.add('rotate-y-180');
+      } else {
+        cardEl.classList.remove('rotate-y-180');
+      }
+    }
+
+    function prevFlashcard() {
+      const total = appData.weeks[currentWeekIndex].vocabulary.length;
+      currentCardIndex = (currentCardIndex - 1 + total) % total;
+      updateFlashcard();
+    }
+
+    function nextFlashcard() {
+      const total = appData.weeks[currentWeekIndex].vocabulary.length;
+      currentCardIndex = (currentCardIndex + 1) % total;
+      updateFlashcard();
+    }
+
+    // Phát âm giọng người bản xứ (Web Speech API)
+    function speakWord() {
+      const word = appData.weeks[currentWeekIndex].vocabulary[currentCardIndex].phrase;
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    // 7. Sổ tay từ vựng & Bộ lọc
     function renderVocabList() {
       const container = document.getElementById('vocab-container');
       container.innerHTML = '';
       const vocabs = appData.weeks[currentWeekIndex].vocabulary;
 
-      vocabs.forEach(v => {
-        const isSaved = savedVocabs.has(v.id);
-        const card = document.createElement('div');
-        card.className = "p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition space-y-1.5";
-        card.innerHTML = `
-          <div class="flex items-center justify-between">
-            <h4 class="text-xs font-bold text-slate-900">${v.phrase}</h4>
-            <button onclick="toggleBookmark('${v.id}')" class="text-slate-400 hover:text-blue-600 transition">
-              <i class="ph-bold ${isSaved ? 'ph-bookmark-simple text-blue-600' : 'ph-bookmark-simple'} text-base"></i>
-            </button>
-          </div>
-          <p class="text-[11px] text-slate-500 font-mono">${v.phonetic}</p>
-          <p class="text-xs text-slate-700 font-medium">${v.meaning}</p>
-          <p class="text-[11px] text-slate-500 italic bg-white p-2 rounded-lg border border-slate-100">"${v.context}"</p>
-        `;
-        container.appendChild(card);
-      });
+      const filtered = onlySavedFilter ? vocabs.filter(v => savedVocabs.has(v.id)) : vocabs;
 
-      document.getElementById('saved-vocab-count').innerText = savedVocabs.size;
+      if (filtered.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">Chưa có từ vựng nào trong danh sách lọc.</p>`;
+      } else {
+        filtered.forEach(v => {
+          const isSaved = savedVocabs.has(v.id);
+          const card = document.createElement('div');
+          card.className = "p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-1.5";
+          card.innerHTML = `
+            <div class="flex items-center justify-between">
+              <h4 class="text-xs font-bold text-slate-900 dark:text-white">${v.phrase}</h4>
+              <button onclick="toggleBookmark('${v.id}')" class="text-slate-400 hover:text-sky-500 transition">
+                <i class="ph-bold ${isSaved ? 'ph-bookmark-simple text-sky-500' : 'ph-bookmark-simple'} text-base"></i>
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-400 font-mono">${v.phonetic}</p>
+            <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">${v.meaning}</p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 italic bg-slate-50 dark:bg-slate-950 p-2 rounded-lg border border-slate-100 dark:border-slate-800">"${v.context}"</p>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      document.getElementById('saved-counter').innerText = savedVocabs.size;
     }
 
     function toggleBookmark(id) {
@@ -343,9 +598,24 @@
       } else {
         savedVocabs.add(id);
       }
+      localStorage.setItem('biz_saved', JSON.stringify([...savedVocabs]));
       renderVocabList();
     }
 
+    function toggleVaultFilter() {
+      onlySavedFilter = !onlySavedFilter;
+      const btn = document.getElementById('vault-filter-btn');
+      if (onlySavedFilter) {
+        btn.className = "text-xs px-2.5 py-1 rounded-lg border border-sky-300 bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 font-semibold flex items-center gap-1.5 transition";
+        btn.innerHTML = `<i class="ph-bold ph-bookmark-simple"></i> <span>Chỉ từ đã lưu</span>`;
+      } else {
+        btn.className = "text-xs px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-semibold flex items-center gap-1.5 transition";
+        btn.innerHTML = `<i class="ph-bold ph-funnel"></i> <span>Tất cả từ vựng</span>`;
+      }
+      renderVocabList();
+    }
+
+    // 8. Mini Quiz
     function renderQuiz() {
       const container = document.getElementById('quiz-container');
       container.innerHTML = '';
@@ -353,16 +623,16 @@
 
       quizzes.forEach((q, qIdx) => {
         const item = document.createElement('div');
-        item.className = "p-3.5 bg-slate-50 rounded-xl text-xs space-y-2";
+        item.className = "p-3 bg-slate-50 dark:bg-slate-950 rounded-xl text-xs space-y-2 border border-slate-100 dark:border-slate-800/60";
         
         let btnsHtml = q.options.map((opt, optIdx) => `
-          <button onclick="checkQuizAnswer(this, ${optIdx === q.correct_index})" class="text-left p-2 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 text-slate-700 transition">
+          <button onclick="checkQuizAnswer(this, ${optIdx === q.correct_index})" class="text-left p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-sky-400 text-slate-700 dark:text-slate-300 transition">
             ${opt}
           </button>
         `).join('');
 
         item.innerHTML = `
-          <p class="font-semibold text-slate-800">${qIdx + 1}. ${q.question}</p>
+          <p class="font-semibold text-slate-800 dark:text-slate-200">${qIdx + 1}. ${q.question}</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
             ${btnsHtml}
           </div>
@@ -375,17 +645,16 @@
       const parent = btn.parentElement;
       parent.querySelectorAll('button').forEach(b => {
         b.disabled = true;
-        b.classList.remove('hover:bg-blue-50');
       });
 
       if (isCorrect) {
-        btn.classList.add('bg-emerald-100', 'text-emerald-800', 'border-emerald-300');
+        btn.classList.add('bg-emerald-100', 'dark:bg-emerald-950/60', 'text-emerald-800', 'dark:text-emerald-300', 'border-emerald-400');
       } else {
-        btn.classList.add('bg-rose-100', 'text-rose-800', 'border-rose-300');
+        btn.classList.add('bg-rose-100', 'dark:bg-rose-950/60', 'text-rose-800', 'dark:text-rose-300', 'border-rose-400');
       }
     }
 
-    // Khởi động
+    // Khởi chạy ứng dụng
     initApp();
   </script>
 </body>
