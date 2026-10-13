@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizEnglish Weekly Curator - Advisory Department</title>
+  <!-- Tailwind CSS CDN để giao diện hiển thị chuyên nghiệp -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"/>
+  <style>
+    .aspect-video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 0.75rem;
+    }
+    .aspect-video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- TOP NAVBAR -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white text-xl font-bold shadow-sm shadow-blue-200">
+          BE
+        </div>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">BizEnglish Weekly Curator</h1>
+          <p class="text-xs text-slate-500">Khối Tư vấn (Advisory Department)</p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics & User Info -->
+      <div class="flex items-center space-x-4">
+        <div class="hidden sm:flex items-center space-x-2 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-full text-amber-700 text-xs font-semibold">
+          <i class="ph-bold ph-fire text-amber-500 text-base"></i>
+          <span>Weekly Streak: <strong id="streak-counter">4</strong> tuần</span>
+        </div>
+        <div class="flex items-center space-x-3 border-l pl-4 border-slate-200">
+          <div class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
+            HN
+          </div>
+          <div class="hidden md:block text-left">
+            <p class="text-xs font-semibold text-slate-800">Nguyễn Hải Nam</p>
+            <p class="text-[11px] text-slate-500">Senior Consultant</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- LEFT COLUMN: MAIN LESSON & VIDEO PLAYER (8 COLS) -->
+    <div class="lg:col-span-8 space-y-6">
+      
+      <!-- Weekly Topic Card -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
+            <i class="ph-bold ph-calendar-check"></i> Tuần 41 (2026) - Kế hoạch đang học
+          </span>
+          <span class="text-xs text-slate-500 font-medium">Độ khó: <span class="font-semibold text-slate-700">Intermediate</span></span>
+        </div>
+        <h2 id="current-topic-title" class="text-xl font-bold text-slate-900 mt-1">
+          Managing Client Expectations & Scope Creep
+        </h2>
+        <p id="current-topic-desc" class="text-sm text-slate-600 mt-1.5">
+          Cách dùng từ ngữ khéo léo để từ chối yêu cầu ngoài phạm vi hợp đồng mà không làm mất lòng khách hàng doanh nghiệp.
+        </p>
+      </div>
+
+      <!-- Video Player Section -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+        <div class="aspect-video-container bg-slate-900">
+          <iframe 
+            id="video-player"
+            src="https://www.youtube.com/embed/8qhz4n8bIeU?enablejsapi=1" 
+            title="Video bài học tiếng Anh tư vấn" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+          <div>
+            <h3 id="video-title" class="text-base font-bold text-slate-900">
+              How to Say NO to Clients Professionally in English
+            </h3>
+            <p id="video-meta" class="text-xs text-slate-500 mt-0.5">Kênh: Career English Hub • Thời lượng: 8 phút</p>
+          </div>
+
+          <button id="btn-complete-lesson" onclick="toggleCompleteCurrentVideo()" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm bg-blue-600 hover:bg-blue-700 text-white">
+            <i class="ph-bold ph-check-circle"></i>
+            <span>Đánh dấu hoàn thành video</span>
+          </button>
+        </div>
+
+        <!-- Takeaway Note -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200/60 rounded-xl">
+          <p class="text-xs font-semibold text-slate-700 mb-1 flex items-center gap-1.5">
+            <i class="ph-bold ph-lightbulb text-amber-500"></i> Bài học cốt lõi (Key Takeaway):
+          </p>
+          <p id="video-takeaway" class="text-xs text-slate-600 leading-relaxed">
+            Luôn ghi nhận nhu cầu của khách hàng trước khi đề cập đến các ràng buộc thời hạn và phạm vi trong hợp đồng.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive 3-Question Quiz (PRD Requirement) -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex items-center justify-between border-b pb-3 border-slate-100">
+          <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+            <i class="ph-bold ph-check-square-offset text-blue-600"></i> Mini Quiz 3 Phút: Ôn Tập Nhanh
+          </h3>
+          <span class="text-xs text-slate-400">3 câu trắc nghiệm</span>
+        </div>
+
+        <div class="space-y-3" id="quiz-container">
+          <div class="p-3.5 bg-slate-50 rounded-xl text-xs space-y-2">
+            <p class="font-semibold text-slate-800">1. Thuật ngữ nào chỉ hiện tượng yêu cầu dự án phình to quá mức ngoài cam kết ban đầu?</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+              <button onclick="checkAnswer(this, true)" class="text-left p-2 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 text-slate-700 transition">A. Scope Creep</button>
+              <button onclick="checkAnswer(this, false)" class="text-left p-2 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 text-slate-700 transition">B. Deadlock Delay</button>
+            </div>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl text-xs space-y-2">
+            <p class="font-semibold text-slate-800">2. Cụm từ "Bottom-line upfront (BLUF)" nghĩa là gì khi trình bày cho C-Levels?</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+              <button onclick="checkAnswer(this, false)" class="text-left p-2 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 text-slate-700 transition">A. Giải thích cặn kẽ dữ liệu rồi mới kết luận</button>
+              <button onclick="checkAnswer(this, true)" class="text-left p-2 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 text-slate-700 transition">B. Đưa khuyến nghị/kết luận quan trọng lên đầu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: PLAYLIST & VOCAB VAULT (4 COLS) -->
+    <div class="lg:col-span-4 space-y-6">
+
+      <!-- Weekly Playlist Selector -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
+        <h3 class="text-sm font-bold text-slate-900 flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="ph-bold ph-playlist text-blue-600"></i> Bài học trong tuần
+          </span>
+          <span id="completed-count" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+            1/2 Hoàn thành
+          </span>
+        </h3>
+
+        <div id="video-list" class="space-y-2 pt-1">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Consulting Key Expressions (Vocab Vault) -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+            <i class="ph-bold ph-bookmarks text-blue-600"></i> Thuật ngữ tư vấn chắt lọc
+          </h3>
+          <span class="text-xs text-blue-600 font-medium">Bấm bookmark để lưu</span>
+        </div>
+
+        <div id="vocab-container" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Saved Vault Counter -->
+      <div class="p-4 rounded-xl border border-dashed border-slate-300 bg-slate-50/70 text-center">
+        <p class="text-xs text-slate-500">Đã lưu trong Personal Vocab Vault:</p>
+        <p class="text-xl font-bold text-slate-800 mt-1"><span id="saved-vocab-count">2</span> từ vựng</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- JAVASCRIPT LOGIC (MOCK DATA TỪ PRD) -->
+  <script>
+    // Dữ liệu mô phỏng đồng bộ hoàn toàn với SQL Mock Data trong PRD
+    const mockVideos = [
+      {
+        videoId: 'vid-201',
+        youtubeId: '8qhz4n8bIeU',
+        title: 'How to Say NO to Clients Professionally in English',
+        channel: 'Career English Hub',
+        duration: '8 phút',
+        summary: 'Hướng dẫn 3 cấu trúc câu ngoại giao giúp tư vấn viên giải thích việc vượt ngân sách/phạm vi dự án.',
+        takeaway: 'Luôn ghi nhận nhu cầu của khách trước khi đề cập đến ràng buộc hợp đồng.',
+        isCompleted: true
+      },
+      {
+        videoId: 'vid-202',
+        youtubeId: 'm2hG1i6sK0w',
+        title: 'Consulting Vocabulary: Handling Objections & Deadlocks',
+        channel: 'Business English Pod',
+        duration: '11 phút',
+        summary: 'Bộ từ vựng và mẫu câu phản hồi khi khách hàng phản đối đề xuất giải pháp của nhóm tư vấn.',
+        takeaway: 'Sử dụng kỹ thuật Reframe (tái định hình vấn đề) thay vì đối đầu trực tiếp.',
+        isCompleted: false
+      },
+      {
+        videoId: 'vid-203',
+        youtubeId: 'V8eLdbKXGzk',
+        title: 'Structuring Presentations Like a McKinsey Consultant',
+        channel: 'Firm Learning',
+        duration: '14 phút',
+        summary: 'Phân tích phương pháp Top-down Communication và cách chọn từ đắt giá khi gặp C-Levels.',
+        takeaway: 'Đưa khuyến nghị (Bottom-line) lên trước, phân tích dữ liệu chứng minh phía sau.',
+        isCompleted: false
+      }
+    ];
+
+    const mockVocabs = [
+      {
+        id: 'voc-301',
+        phrase: 'Scope Creep',
+        phonetic: '/skoʊp kriːp/',
+        meaning: 'Hiện tượng dự án bị phình to phạm vi so với thỏa thuận ban đầu',
+        context: 'To avoid scope creep, we need to formally document these additional requests in a Change Order.',
+        isSaved: true
+      },
+      {
+        id: 'voc-302',
+        phrase: 'Push back constructively',
+        phonetic: '/pʊʃ bæk kənˈstrʌktɪvli/',
+        meaning: 'Phản hồi từ chối một cách khéo léo, mang tính xây dựng',
+        context: 'The lead consultant had to push back constructively when the client requested a 50% shorter deadline.',
+        isSaved: false
+      },
+      {
+        id: 'voc-303',
+        phrase: 'Align on expectations',
+        phonetic: '/əˈlaɪn ɒn ˌɛkspekˈteɪʃənz/',
+        meaning: 'Thống nhất và đồng thuận về kỳ vọng đôi bên',
+        context: 'Before proceeding with the audit, let us align on the expected deliverables.',
+        isSaved: false
+      },
+      {
+        id: 'voc-304',
+        phrase: 'Bottom-line upfront (BLUF)',
+        phonetic: '/ˈbɑː.t̬əm laɪn ʌpˈfrʌnt/',
+        meaning: 'Đưa kết luận/khuyến nghị quan trọng nhất lên đầu câu chuyện',
+        context: 'In our executive briefing, always use the BLUF principle to respect the CEO\'s limited time.',
+        isSaved: true
+      }
+    ];
+
+    let currentVideoIndex = 0;
+
+    // Render danh sách video bài học
+    function renderVideoList() {
+      const container = document.getElementById('video-list');
+      container.innerHTML = '';
+      
+      let completedCount = 0;
+
+      mockVideos.forEach((vid, index) => {
+        if (vid.isCompleted) completedCount++;
+        const isCurrent = index === currentVideoIndex;
+
+        const item = document.createElement('div');
+        item.className = `p-3 rounded-xl cursor-pointer border transition flex items-start gap-3 ${
+          isCurrent 
+            ? 'bg-blue-50/70 border-blue-200' 
+            : 'bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50'
+        }`;
+        
+        item.onclick = () => selectVideo(index);
+
+        item.innerHTML = `
+          <div class="mt-0.5">
+            <i class="ph-bold ${vid.isCompleted ? 'ph-check-circle text-emerald-600' : 'ph-circle text-slate-300'} text-base"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-semibold ${isCurrent ? 'text-blue-900 font-bold' : 'text-slate-800'} line-clamp-1">${vid.title}</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">${vid.duration} • ${vid.channel}</p>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+
+      document.getElementById('completed-count').innerText = `${completedCount}/${mockVideos.length} Đã xong`;
+    }
+
+    // Chọn video xem
+    function selectVideo(index) {
+      currentVideoIndex = index;
+      const vid = mockVideos[index];
+
+      document.getElementById('video-player').src = `https://www.youtube.com/embed/${vid.youtubeId}?autoplay=1`;
+      document.getElementById('video-title').innerText = vid.title;
+      document.getElementById('video-meta').innerText = `Kênh: ${vid.channel} • Thời lượng: ${vid.duration}`;
+      document.getElementById('video-takeaway').innerText = vid.takeaway;
+
+      updateCompleteButtonState();
+      renderVideoList();
+    }
+
+    // Cập nhật trạng thái nút hoàn thành
+    function updateCompleteButtonState() {
+      const btn = document.getElementById('btn-complete-lesson');
+      const isDone = mockVideos[currentVideoIndex].isCompleted;
+
+      if (isDone) {
+        btn.className = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all border border-emerald-300 bg-emerald-50 text-emerald-700";
+        btn.innerHTML = `<i class="ph-bold ph-check text-emerald-600"></i> Đã hoàn thành`;
+      } else {
+        btn.className = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm bg-blue-600 hover:bg-blue-700 text-white";
+        btn.innerHTML = `<i class="ph-bold ph-check-circle"></i> Đánh dấu hoàn thành`;
+      }
+    }
+
+    // Đánh dấu hoàn thành bài học hiện tại
+    function toggleCompleteCurrentVideo() {
+      mockVideos[currentVideoIndex].isCompleted = !mockVideos[currentVideoIndex].isCompleted;
+      updateCompleteButtonState();
+      renderVideoList();
+    }
+
+    // Render danh sách từ vựng chuyên ngành
+    function renderVocabList() {
+      const container = document.getElementById('vocab-container');
+      container.innerHTML = '';
+      let savedCount = 0;
+
+      mockVocabs.forEach((v, idx) => {
+        if (v.isSaved) savedCount++;
+
+        const card = document.createElement('div');
+        card.className = "p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition space-y-1.5";
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold text-slate-900">${v.phrase}</h4>
+            <button onclick="toggleSaveVocab(${idx})" class="text-slate-400 hover:text-blue-600 transition">
+              <i class="ph-bold ${v.isSaved ? 'ph-bookmark-simple text-blue-600' : 'ph-bookmark-simple'} text-base"></i>
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-500 font-mono">${v.phonetic}</p>
+          <p class="text-xs text-slate-700 font-medium">${v.meaning}</p>
+          <p class="text-[11px] text-slate-500 italic bg-white p-2 rounded-lg border border-slate-100">"${v.context}"</p>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('saved-vocab-count').innerText = savedCount;
+    }
+
+    // Lưu / bỏ lưu từ vựng
+    function toggleSaveVocab(index) {
+      mockVocabs[index].isSaved = !mockVocabs[index].isSaved;
+      renderVocabList();
+    }
+
+    // Kiểm tra câu trả lời quiz
+    function checkAnswer(btn, isCorrect) {
+      const parent = btn.parentElement;
+      const buttons = parent.querySelectorAll('button');
+      buttons.forEach(b => {
+        b.disabled = true;
+        b.classList.remove('hover:bg-blue-50');
+      });
+
+      if (isCorrect) {
+        btn.classList.add('bg-emerald-100', 'text-emerald-800', 'border-emerald-300');
+      } else {
+        btn.classList.add('bg-rose-100', 'text-rose-800', 'border-rose-300');
+      }
+    }
+
+    // Khởi chạy
+    renderVideoList();
+    renderVocabList();
+    updateCompleteButtonState();
+  </script>
+</body>
+</html>
