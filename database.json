@@ -1,202 +1,1046 @@
-{
-  "menu_categories": [
-    {
-      "id": "coffee",
-      "name": "Coffee Break",
-      "icon": "☕",
-      "duration_label": "3 – 5 phút",
-      "subtitle": "1 cụm từ đắt giá giải quyết tình huống tức thì"
-    },
-    {
-      "id": "lunch",
-      "name": "Lunch Break",
-      "icon": "🥪",
-      "duration_label": "10 – 15 phút",
-      "subtitle": "Đoạn hội thoại thực chiến trong họp hành & dự án"
-    },
-    {
-      "id": "chill",
-      "name": "After-work Chill",
-      "icon": "🛋️",
-      "duration_label": "15 – 20 phút",
-      "subtitle": "Podcast ngắn & chia sẻ kỹ năng quản trị công sở"
-    }
-  ],
-  "lessons": [
-    {
-      "id": "les-101",
-      "category": "coffee",
-      "title": "Nghệ thuật từ chối khéo deadline bất khả thi",
-      "youtubeId": "mBRKbvBv-yc",
-      "duration": "4 phút",
-      "level": "Hạt mầm 🌱",
-      "tags": ["#BịDíDeadline", "#TừChốiKhéoSếp"],
-      "takeaway": "Ghi nhận ưu tiên của sếp trước khi đề xuất dời giờ hoặc cắt giảm khối lượng công việc.",
-      "transcript": [
-        {
-          "start": 12,
-          "end": 18,
-          "speaker": "Partner",
-          "en": "Can you finish this consulting report by 3 PM today?",
-          "vi": "Em có thể xong bản báo cáo tư vấn này trước 3 giờ chiều nay được không?"
-        },
-        {
-          "start": 19,
-          "end": 26,
-          "speaker": "You",
-          "en": "I'd love to help, but given the current scope, rushing might compromise the quality.",
-          "vi": "Em rất muốn hỗ trợ, nhưng với khối lượng hiện tại, làm vội có thể ảnh hưởng đến chất lượng."
-        },
-        {
-          "start": 27,
-          "end": 35,
-          "speaker": "You",
-          "en": "Could we prioritize the executive summary first and deliver the appendix tomorrow morning?",
-          "vi": "Liệu mình có thể ưu tiên bản tóm tắt trước, còn phần phụ lục gửi vào sáng mai được không ạ?"
-        }
-      ],
-      "roleplay": {
-        "scenario": "Sếp nhắn gấp: 'Can you finish this report by 3 PM?' - Bạn đang kẹt lịch họp khách hàng.",
-        "options": [
-          {
-            "tone": "Lịch sự & Đề xuất giờ",
-            "reply": "I'm tied up with a client meeting until 2 PM. Could I deliver it by 5 PM instead?",
-            "tip": "Vừa nêu lý do chính đáng vừa đưa ra giờ cụ thể."
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizSprout - Khu Vườn Tiếng Anh Công Sở</title>
+
+  <!-- Google Font: Quicksand & Nunito bo tròn, tự nhiên -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+            display: ['Quicksand', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
           },
-          {
-            "tone": "Chia nhỏ đầu việc",
-            "reply": "I can send the draft findings by 3 PM, and the full analysis by tomorrow morning.",
-            "tip": "Giúp sếp có tài liệu xem trước mà không bị quá tải."
+          colors: {
+            garden: {
+              50: '#F4F9F5',
+              100: '#E4F2E7',
+              200: '#C7E3CE',
+              300: '#9ECFB8',
+              500: '#4F9D69',
+              600: '#3D8354',
+              700: '#2F6742',
+              800: '#235034',
+              900: '#1A3C27'
+            },
+            leaf: '#5DB075',
+            earth: '#8D6E63'
           }
-        ]
-      }
-    },
-    {
-      "id": "les-102",
-      "category": "lunch",
-      "title": "Tranh luận lịch thiệp khi bất đồng quan điểm trong họp",
-      "youtubeId": "F6Zg65eK94U",
-      "duration": "10 phút",
-      "level": "Chồi non 🌿",
-      "tags": ["#TranhLuậnTrongHọp", "#BảoVệGiảiPháp"],
-      "takeaway": "Dùng kỹ thuật làm mềm ngữ khí: 'I see your point, however...' thay vì 'You are wrong'.",
-      "transcript": [
-        {
-          "start": 45,
-          "end": 52,
-          "speaker": "Client",
-          "en": "Your proposed timeline is much too long for our launch schedule.",
-          "vi": "Tiến độ bên bạn đề xuất quá dài so với kế hoạch ra mắt của chúng tôi."
-        },
-        {
-          "start": 53,
-          "end": 62,
-          "speaker": "Consultant",
-          "en": "I completely understand your urgency, however, cutting testing stages might increase deployment risks.",
-          "vi": "Tôi hoàn toàn hiểu tính cấp bách của anh, tuy nhiên cắt bớt khâu kiểm thử có thể làm tăng rủi ro khi vận hành."
-        },
-        {
-          "start": 63,
-          "end": 71,
-          "speaker": "Consultant",
-          "en": "Let's explore whether we can launch Phase 1 with core features first.",
-          "vi": "Chúng ta hãy xem xét liệu có thể ra mắt Giai đoạn 1 với các tính năng cốt lõi trước được không."
         }
-      ],
-      "roleplay": {
-        "scenario": "Khách hàng chê: 'This fee is way above our budget!'",
-        "options": [
-          {
-            "tone": "Tập trung vào giá trị (Value)",
-            "reply": "I understand budget constraints are crucial. Let's review the scope to see what we can optimize.",
-            "tip": "Không vội hạ giá, hướng khách vào việc tối ưu phạm vi."
-          },
-          {
-            "tone": "Đưa giải pháp trả chậm / chia giai đoạn",
-            "reply": "We could split the engagement into two milestones to align with your quarterly cash flow.",
-            "tip": "Giảm áp lực tài chính ngắn hạn cho khách."
-          }
-        ]
-      }
-    },
-    {
-      "id": "les-103",
-      "category": "coffee",
-      "title": "Small Talk thang máy 30 giây với khách hàng & sếp lớn",
-      "youtubeId": "Unzc731iCUY",
-      "duration": "5 phút",
-      "level": "Hạt mầm 🌱",
-      "tags": ["#SmallTalkThangMáy", "#TạoẤnTượng"],
-      "takeaway": "Nêu 1 câu chuyện vui vẻ, hỏi thăm nhẹ nhàng và luôn nở nụ cười tự nhiên.",
-      "transcript": [
-        {
-          "start": 15,
-          "end": 22,
-          "speaker": "Executive",
-          "en": "Busy week ahead, isn't it?",
-          "vi": "Tuần này bận rộn quá nhỉ?"
-        },
-        {
-          "start": 23,
-          "end": 31,
-          "speaker": "You",
-          "en": "Quite eventful! We are wrapping up the audit findings today. How was your weekend conference?",
-          "vi": "Dạ khá nhiều sự kiện ạ! Nhóm em đang chốt kết quả kiểm toán hôm nay. Buổi hội thảo cuối tuần của anh thế nào ạ?"
-        }
-      ],
-      "roleplay": {
-        "scenario": "Vô tình đứng chung thang máy với Giám đốc điều hành, sếp hỏi: 'How are things going on your end?'",
-        "options": [
-          {
-            "tone": "Ngắn gọn, tích cực & Có điểm nhấn",
-            "reply": "Everything is on track! We just onboarded two new corporate accounts this morning.",
-            "tip": "Báo cáo nhanh thành tích nhỏ mang tính tích cực."
-          }
-        ]
-      }
-    },
-    {
-      "id": "les-104",
-      "category": "chill",
-      "title": "Think Fast, Talk Smart: Phản xạ giao tiếp tự nhiên",
-      "youtubeId": "i0a61wFaQD8",
-      "duration": "16 phút",
-      "level": "Cây xanh 🌳",
-      "tags": ["#TựTinNóiTiếngAnh", "#PhảnXạCôngSở"],
-      "takeaway": "Nguyên tắc: Đừng cố nói hoàn hảo, hãy tập trung vào thông điệp rõ ràng và chân thành.",
-      "transcript": [
-        {
-          "start": 30,
-          "end": 38,
-          "speaker": "Host",
-          "en": "Many professionals freeze when asked an unexpected question in meetings.",
-          "vi": "Nhiều người đi làm bị đơ cứng khi bất ngờ nhận được câu hỏi trong cuộc họp."
-        },
-        {
-          "start": 39,
-          "end": 48,
-          "speaker": "Speaker",
-          "en": "The secret is adopting a 'What, So What, Now What' structure to buy time and stay organized.",
-          "vi": "Bí quyết là áp dụng cấu trúc 'Cái gì, Tại sao quan trọng, Hành động tiếp theo' để vừa có thời gian suy nghĩ vừa mạch lạc."
-        }
-      ],
-      "roleplay": {
-        "scenario": "Trong cuộc họp, bạn bị hỏi bất ngờ: 'What do you think about this proposal?'",
-        "options": [
-          {
-            "tone": "Dùng mẫu câu đệm chuyên nghiệp",
-            "reply": "That's an interesting angle. From my observation, the core benefit is time-saving, but we need to assess the cost.",
-            "tip": "Dùng 'That's an interesting angle' để có 2 giây định hình câu trả lời."
-          }
-        ]
       }
     }
-  ],
-  "glossary": {
-    "scope": { "ipa": "/skoʊp/", "vi": "Phạm vi công việc đã thỏa thuận trong hợp đồng dự án." },
-    "compromise": { "ipa": "/ˈkɑːm.prə.maɪz/", "vi": "Làm tổn hại, làm giảm sút chất lượng hoặc sự an toàn." },
-    "prioritize": { "ipa": "/praɪˈɔːr.ə.taɪz/", "vi": "Ưu tiên xử lý việc quan trọng lên hàng đầu." },
-    "urgency": { "ipa": "/ˈɝː.dʒən.si/", "vi": "Tính khẩn cấp, sự việc cần xử lý gấp." },
-    "eventful": { "ipa": "/ɪˈvent.fəl/", "vi": "Nhiều sự kiện diễn ra sôi nổi, bận rộn tích cực." }
-  }
-}
+  </script>
+
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"/>
+
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+    .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    
+    .chat-bubble-active {
+      background-color: #E8F5E9 !important;
+      border-color: #4CAF50 !important;
+      transform: scale(1.015);
+      box-shadow: 0 4px 14px rgba(76, 175, 80, 0.2);
+    }
+    .dark .chat-bubble-active {
+      background-color: #1B3824 !important;
+      border-color: #4CAF50 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes bounce-plant {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.05); }
+    }
+    .plant-bounce {
+      animation: bounce-plant 1.2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#F6FAF7] dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col font-sans transition-colors">
+
+  <!-- TOP APP BAR -->
+  <header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-garden-100 dark:border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo Khu Vườn Tiếng Anh -->
+      <div class="flex items-center gap-3 cursor-pointer select-none" onclick="goToHome()">
+        <div class="w-10 h-10 rounded-2xl bg-garden-600 flex items-center justify-center text-white text-xl shadow-md shadow-garden-200/50 dark:shadow-none">
+          🌱
+        </div>
+        <div>
+          <span class="text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 font-display">
+            BizSprout 
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 dark:bg-garden-950/80 text-garden-700 dark:text-garden-300">Office Garden</span>
+          </span>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400">Tưới tắm tiếng Anh mỗi ngày cho ngày dài dịu êm</p>
+        </div>
+      </div>
+
+      <!-- Thống kê Cây & Giọt Nước EXP -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Widget Cây Xanh Thu Nhỏ -->
+        <div onclick="openGardenModal()" class="cursor-pointer flex items-center gap-2 bg-garden-50 dark:bg-slate-800 border border-garden-200/80 dark:border-slate-700 px-3 py-1.5 rounded-2xl text-xs font-bold transition hover:bg-garden-100/70">
+          <span id="nav-plant-icon" class="text-base select-none">🌱</span>
+          <div class="flex flex-col text-left">
+            <span class="text-[10px] text-garden-800 dark:text-garden-300 font-semibold" id="nav-plant-level-name">Cấp 2: Chồi Non</span>
+            <div class="w-16 bg-garden-200/60 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-0.5">
+              <div id="nav-exp-bar" class="bg-garden-600 h-full rounded-full transition-all duration-500" style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hộp Lá Từ Vựng (Leaf Bank) -->
+        <button onclick="openWordBank()" class="px-3 py-1.5 rounded-2xl border border-garden-200/80 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-garden-50 text-xs font-bold flex items-center gap-1.5 transition text-garden-800 dark:text-garden-300">
+          <i class="ph-bold ph-leaf text-base text-garden-600"></i>
+          <span class="hidden sm:inline">Lá Từ Vựng</span>
+          <span id="sticker-count" class="px-1.5 py-0.5 rounded-full bg-garden-600 text-white text-[10px] font-bold">0</span>
+        </button>
+
+        <!-- Sáng / Tối -->
+        <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-2xl border border-garden-200/80 dark:border-slate-700 hover:bg-garden-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition">
+          <i id="theme-icon" class="ph-bold ph-moon text-base"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- NỘI DUNG CHÍNH -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
+
+    <!-- VIEW 1: VƯỜN ƯƠM BÀI HỌC (HOME VIEW) -->
+    <section id="menu-view" class="space-y-6">
+      
+      <!-- HERO BANNER: GÓC BÀN LÀM VIỆC & CÂY XANH CỦA BẠN -->
+      <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-garden-100/90 via-emerald-50/60 to-white dark:from-slate-900 dark:via-slate-900 dark:to-garden-950/40 border border-garden-200/70 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl text-center md:text-left">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-garden-200/60 dark:bg-slate-800 text-garden-900 dark:text-garden-200 text-xs font-bold">
+            <span>🪴 Góc bàn làm việc ảo</span>
+            <span class="text-slate-400">•</span>
+            <span id="streak-label">Chuỗi 3 ngày chăm chỉ 🔥</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-display leading-tight">
+            Tưới tắm tiếng Anh mỗi ngày, cây sẽ lớn cùng bạn!
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+            Mỗi bài học hoàn thành tặng bạn <strong>+50 giọt nước EXP</strong> giúp mầm cây phát triển từ chồi non bé bỏng thành đại thụ công sở sum suê.
+          </p>
+        </div>
+
+        <!-- MÔ HÌNH CÂY CỦA BẠN -->
+        <div class="flex flex-col items-center p-4 rounded-3xl bg-white/80 dark:bg-slate-800/80 border border-garden-200/60 dark:border-slate-700 min-w-[200px] shadow-sm">
+          <div id="hero-plant-display" class="text-5xl my-2 plant-bounce select-none">
+            🌱
+          </div>
+          <span id="hero-plant-name" class="text-xs font-black text-garden-800 dark:text-garden-300 font-display">Chồi Non Lớp 2</span>
+          <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden mt-2">
+            <div id="hero-exp-bar" class="bg-garden-500 h-full rounded-full transition-all duration-700" style="width: 40%"></div>
+          </div>
+          <p id="hero-exp-text" class="text-[10px] text-slate-400 font-mono mt-1">40 / 100 EXP</p>
+        </div>
+      </div>
+
+      <!-- BỘ LỌC CHU TRÌNH TƯỚI CÂY -->
+      <div class="flex flex-wrap items-center gap-2.5" id="category-filters">
+        <button onclick="filterCategory('all')" id="filter-btn-all" class="px-4 py-2 rounded-2xl text-xs font-bold transition bg-garden-700 text-white shadow-sm flex items-center gap-1.5">
+          <span>✨ Tất cả mầm cây</span>
+        </button>
+        <button onclick="filterCategory('coffee')" id="filter-btn-coffee" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5">
+          <span>💧 Tưới nhanh (3–5 phút)</span>
+        </button>
+        <button onclick="filterCategory('lunch')" id="filter-btn-lunch" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5">
+          <span>🍃 Chăm lá (10–15 phút)</span>
+        </button>
+        <button onclick="filterCategory('chill')" id="filter-btn-chill" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5">
+          <span>🌳 Bón rễ (15–20 phút)</span>
+        </button>
+      </div>
+
+      <!-- KỆ BÀI HỌC CÔNG SỞ -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="lesson-cards-container"></div>
+    </section>
+
+    <!-- VIEW 2: PHÒNG TẬP LUYỆN & PHÁT VIDEO YOUTUBE (STUDY ROOM) -->
+    <section id="study-room-view" class="hidden space-y-4">
+      
+      <!-- Top Action Bar -->
+      <div class="flex items-center justify-between">
+        <button onclick="goToHome()" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-garden-700 dark:hover:text-garden-300 flex items-center gap-1.5 transition">
+          <i class="ph-bold ph-arrow-left text-base"></i> Về Vườn Ươm Bài Học
+        </button>
+        <div class="flex items-center gap-2">
+          <span id="study-badge-level" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-garden-100 text-garden-800 dark:bg-slate-800 dark:text-slate-300">🌱 Cấp độ mầm</span>
+          <span id="study-badge-duration" class="text-xs text-slate-400 font-mono font-bold">4 phút</span>
+        </div>
+      </div>
+
+      <!-- BỐ CỤC CHIA ĐÔI: 60% VIDEO / 40% KỊCH BẢN THOẠI -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- CỘT TRÁI: VIDEO YOUTUBE + ROLEPLAY -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <!-- KHUNG PHÁT VIDEO CHUẨN EMBED (KHẮC PHỤC TRIỆT ĐỂ LỖI ĐEN MÀN HÌNH) -->
+          <div class="bg-black rounded-3xl overflow-hidden shadow-xl border border-garden-200/60 dark:border-slate-800">
+            <div class="relative w-full pb-[56.25%] bg-black" id="video-wrapper">
+              <!-- Iframe sẽ được render an toàn bằng JavaScript -->
+            </div>
+          </div>
+
+          <!-- Thanh điều khiển: Tốc độ + Loop + Luyện nói -->
+          <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm space-y-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs font-bold text-slate-500">Tốc độ:</span>
+                <button onclick="setPlaySpeed(0.75)" id="spd-075" class="px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700">0.75x</button>
+                <button onclick="setPlaySpeed(1.0)" id="spd-100" class="px-2.5 py-1 rounded-xl text-xs font-bold bg-garden-700 text-white">1.0x</button>
+                <button onclick="setPlaySpeed(1.25)" id="spd-125" class="px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700">1.25x</button>
+              </div>
+
+              <!-- Lặp câu -->
+              <button onclick="toggleLoopCurrentLine()" id="btn-loop-line" class="px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:border-garden-400 flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300">
+                <i class="ph-bold ph-repeat text-base"></i> Lặp câu này
+              </button>
+            </div>
+
+            <p class="text-[11px] text-slate-400 flex items-center gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800">
+              <i class="ph-bold ph-keyboard"></i> Phím tắt: <strong>Space</strong> (Dừng/Phát) • <strong>Phím ←</strong> (Tua lại 5s để tập nhại giọng).
+            </p>
+          </div>
+
+          <!-- Tình huống phản xạ đóng vai (Role-play Challenge) -->
+          <div class="p-5 rounded-3xl bg-gradient-to-br from-garden-50/70 to-emerald-50/40 dark:from-slate-900 dark:to-slate-900 border border-garden-200/70 dark:border-slate-800 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">🌿</span>
+              <h3 class="text-xs font-extrabold uppercase tracking-wider text-garden-800 dark:text-garden-400">Tình huống phản xạ thực tế (Role-Play)</h3>
+            </div>
+            <p id="roleplay-scenario" class="text-xs font-bold text-slate-800 dark:text-slate-200 leading-relaxed">...</p>
+            <div id="roleplay-options-container" class="space-y-2.5 pt-1"></div>
+          </div>
+
+        </div>
+
+        <!-- CỘT PHẢI: KỊCH BẢN THOẠI & TRA TỪ NHANH -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm flex flex-col h-[650px]">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <div>
+                <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <i class="ph-bold ph-chat-centered-dots text-garden-600"></i> Lời thoại song ngữ & Tra từ
+                </h3>
+                <p class="text-[11px] text-slate-400 font-medium">Bấm vào câu để tua video • Chạm từ để giải nghĩa</p>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 text-garden-800 dark:bg-garden-950 dark:text-garden-300">Live Sync</span>
+            </div>
+
+            <!-- Bong bóng thoại -->
+            <div id="chat-bubbles-container" class="flex-1 overflow-y-auto py-3 space-y-3 pr-1"></div>
+
+            <!-- Nút Hoàn Thành Bài & Tưới Nước Lên Cấp -->
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
+              <button onclick="finishAndWaterPlant()" class="w-full py-3.5 rounded-2xl bg-garden-600 hover:bg-garden-700 text-white font-extrabold text-xs shadow-md shadow-garden-200 dark:shadow-none flex items-center justify-center gap-2 transition">
+                <span class="text-base">💧</span>
+                <span>Tưới nước bài học (+50 EXP Lên Cấp)</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- POPOVER TRA TỪ 1 CHẠM -->
+  <div id="word-popover" class="fixed hidden z-50 bg-white dark:bg-slate-800 border border-garden-200 dark:border-slate-700 shadow-2xl rounded-2xl p-4 w-72 transition-all">
+    <div class="flex items-center justify-between">
+      <h4 id="popover-word" class="text-sm font-extrabold text-garden-800 dark:text-garden-300">Word</h4>
+      <button onclick="closeWordPopover()" class="text-slate-400 hover:text-slate-600 text-xs font-bold">✕</button>
+    </div>
+    <p id="popover-ipa" class="text-xs font-mono text-slate-400 mt-0.5">/ipa/</p>
+    <p id="popover-meaning" class="text-xs text-slate-700 dark:text-slate-200 mt-2 leading-relaxed font-medium">Nghĩa công sở...</p>
+    <button onclick="saveCurrentWordToBank()" id="btn-save-popover-word" class="w-full mt-3 py-1.5 rounded-xl bg-garden-50 hover:bg-garden-100 dark:bg-slate-700 text-garden-900 dark:text-garden-200 text-xs font-bold flex items-center justify-center gap-1.5 transition">
+      <i class="ph-bold ph-bookmark-simple"></i> Lưu vào Lá Từ Vựng
+    </button>
+  </div>
+
+  <!-- MODAL BỘ SƯU TẬP LÁ TỪ VỰNG (WORD BANK) -->
+  <div id="word-bank-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border border-garden-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-lg shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b pb-3 border-slate-100 dark:border-slate-800">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🍃</span>
+          <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Bộ Sưu Tập Lá Từ Vựng Công Sở</h3>
+        </div>
+        <button onclick="closeWordBank()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold">✕</button>
+      </div>
+
+      <div id="stickers-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-1"></div>
+
+      <p class="text-[11px] text-slate-400 text-center italic font-medium">"Thu thập từ vựng nuôi dưỡng phản xạ tự nhiên của bạn!"</p>
+    </div>
+  </div>
+
+  <!-- MODAL XEM CHI TIẾT CẤP ĐỘ CÂY (GARDEN PROGRESS MODAL) -->
+  <div id="garden-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border border-garden-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl text-center space-y-4">
+      <div class="flex justify-end">
+        <button onclick="closeGardenModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 font-bold">✕</button>
+      </div>
+      <div id="modal-plant-icon" class="text-6xl plant-bounce my-2">🌱</div>
+      <h3 id="modal-plant-title" class="text-lg font-black text-slate-900 dark:text-white font-display">Cấp 2: Chồi Non Văn Phòng</h3>
+      <p id="modal-plant-desc" class="text-xs text-slate-500 leading-relaxed">Cây đã bắt đầu đâm chồi! Hãy duy trì việc học mỗi ngày để cây phát triển thành Cây Trầu Bà công sở sum suê nhé.</p>
+      
+      <div class="bg-garden-50 dark:bg-slate-800 p-4 rounded-2xl border border-garden-200/60 dark:border-slate-700">
+        <div class="flex justify-between text-xs font-bold mb-1.5">
+          <span class="text-garden-800 dark:text-garden-300">Tiến trình giọt nước:</span>
+          <span id="modal-exp-count" class="font-mono text-garden-600">40 / 100 EXP</span>
+        </div>
+        <div class="w-full bg-garden-200/50 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+          <div id="modal-exp-bar" class="bg-garden-500 h-full rounded-full transition-all duration-500" style="width: 40%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST LÊN CẤP & CHỮA LÀNH -->
+  <div id="growth-toast" class="fixed bottom-6 right-6 z-50 bg-garden-700 text-white px-5 py-4 rounded-3xl shadow-xl hidden flex items-center gap-3 transition">
+    <span class="text-3xl" id="toast-icon">🪴</span>
+    <div>
+      <p class="text-xs font-black uppercase tracking-wider" id="toast-title">Đã tưới nước thành công! (+50 EXP)</p>
+      <p class="text-[11px] text-garden-100 font-medium" id="toast-sub">Cây của bạn đang lớn dần từng ngày. Thật tuyệt vời ✨</p>
+    </div>
+  </div>
+
+  <!-- YOUTUBE IFRAME PLAYER API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    // DỮ LIỆU TÍCH HỢP SẴN (ĐẢM BẢO CHẠY ĐỘC LẬP KHÔNG LỖI CORS / FETCH)
+    const APP_DATABASE = {
+      menu_categories: [
+        { id: "coffee", name: "Tưới nhanh", duration_label: "3 – 5 phút" },
+        { id: "lunch", name: "Chăm lá", duration_label: "10 – 15 phút" },
+        { id: "chill", name: "Bón rễ", duration_label: "15 – 20 phút" }
+      ],
+      lessons: [
+        {
+          id: "les-101",
+          category: "coffee",
+          title: "Nghệ thuật từ chối khéo deadline bất khả thi",
+          youtubeId: "LBOT2uEZgE0",
+          duration: "4 phút",
+          level: "Hạt mầm 🌱",
+          tags: ["#BịDíDeadline", "#TừChốiKhéoSếp"],
+          takeaway: "Ghi nhận ưu tiên của sếp trước khi đề xuất dời giờ hoặc chia nhỏ việc.",
+          transcript: [
+            {
+              start: 185,
+              end: 195,
+              speaker: "Manager",
+              en: "Can you finish this report by 3 PM today?",
+              vi: "Em có thể xong bản báo cáo này trước 3 giờ chiều nay được không?"
+            },
+            {
+              start: 196,
+              end: 206,
+              speaker: "You",
+              en: "I'd love to help, but given the current scope, rushing might compromise quality.",
+              vi: "Em rất muốn hỗ trợ, nhưng với khối lượng này, làm gấp có thể ảnh hưởng chất lượng."
+            },
+            {
+              start: 207,
+              end: 218,
+              speaker: "You",
+              en: "Could we prioritize the summary first and deliver the appendix tomorrow morning?",
+              vi: "Liệu mình có thể ưu tiên bản tóm tắt trước, còn phần phụ lục gửi vào sáng mai được không ạ?"
+            }
+          ],
+          roleplay: {
+            scenario: "Sếp giao gấp: 'Can you finish this analysis by 3 PM?' - Bạn đang kẹt lịch họp khách hàng.",
+            options: [
+              {
+                tone: "Đề xuất mốc giờ mới",
+                reply: "I'm tied up with a client meeting until 2 PM. Could I deliver it by 5 PM instead?",
+                tip: "Vừa nêu lý do hợp lý vừa đưa ra phương án khả thi ngay."
+              },
+              {
+                tone: "Chia nhỏ giai đoạn",
+                reply: "I can share the key findings by 3 PM, and the comprehensive report by tomorrow.",
+                tip: "Giúp sếp có dữ liệu xem trước mà bạn không bị quá tải."
+              }
+            ]
+          }
+        },
+        {
+          id: "les-102",
+          category: "lunch",
+          title: "Tranh luận lịch thiệp khi bất đồng quan điểm trong họp",
+          youtubeId: "LBOT2uEZgE0",
+          duration: "10 phút",
+          level: "Chồi non 🌿",
+          tags: ["#BảoVệÝKiến", "#HọpNhóm"],
+          takeaway: "Dùng kỹ thuật làm mềm ngữ khí: 'I see your point, however...' thay vì phản bác trực diện.",
+          transcript: [
+            {
+              start: 300,
+              end: 310,
+              speaker: "Client",
+              en: "Your proposed timeline is much too long for our product launch.",
+              vi: "Tiến độ bên bạn đề xuất quá dài so với kế hoạch ra mắt của chúng tôi."
+            },
+            {
+              start: 311,
+              end: 322,
+              speaker: "You",
+              en: "I completely understand your urgency, however, cutting testing might increase risks.",
+              vi: "Tôi hoàn toàn hiểu tính cấp bách, tuy nhiên cắt bớt khâu kiểm thử có thể tăng rủi ro."
+            },
+            {
+              start: 323,
+              end: 335,
+              speaker: "You",
+              en: "Let's explore whether we can launch Phase 1 with core features first.",
+              vi: "Chúng ta hãy xem xét liệu có thể ra mắt Giai đoạn 1 với các tính năng cốt lõi trước được không."
+            }
+          ],
+          roleplay: {
+            scenario: "Đồng nghiệp phản đối: 'This strategy will cost too much!'",
+            options: [
+              {
+                tone: "Ghi nhận & Làm rõ giá trị",
+                reply: "I see your point on cost. Let's look at the projected return on investment.",
+                tip: "Không phủ nhận lo lắng của họ mà chuyển hướng sang kết quả sinh lời."
+              }
+            ]
+          }
+        },
+        {
+          id: "les-103",
+          category: "coffee",
+          title: "Small Talk thang máy 30 giây với sếp lớn & đối tác",
+          youtubeId: "LBOT2uEZgE0",
+          duration: "5 phút",
+          level: "Hạt mầm 🌱",
+          tags: ["#SmallTalkThangMáy", "#TạoẤnTượng"],
+          takeaway: "Nêu 1 câu chuyện vui vẻ, hỏi thăm nhẹ nhàng và luôn nở nụ cười tự nhiên.",
+          transcript: [
+            {
+              start: 389,
+              end: 398,
+              speaker: "Executive",
+              en: "Busy week ahead, isn't it?",
+              vi: "Tuần này bận rộn quá nhỉ?"
+            },
+            {
+              start: 399,
+              end: 412,
+              speaker: "You",
+              en: "Quite eventful! We are wrapping up the audit findings today. How was your conference?",
+              vi: "Dạ khá nhiều sự kiện ạ! Nhóm em đang chốt kiểm toán hôm nay. Buổi hội thảo của sếp thế nào ạ?"
+            }
+          ],
+          roleplay: {
+            scenario: "Sếp hỏi trong thang máy: 'How are things going on your project?'",
+            options: [
+              {
+                tone: "Ngắn gọn, tích cực",
+                reply: "Everything is on track! We just onboarded two enterprise clients this morning.",
+                tip: "Báo cáo nhanh kết quả tích cực trong 10 giây."
+              }
+            ]
+          }
+        },
+        {
+          id: "les-104",
+          category: "chill",
+          title: "Kỹ năng ngắt lời khéo léo trong cuộc thảo luận sôi nổi",
+          youtubeId: "LBOT2uEZgE0",
+          duration: "15 phút",
+          level: "Cây xanh 🌳",
+          tags: ["#NgắtLờiLịchSự", "#ĐiềuPhốiCuộcHọp"],
+          takeaway: "Sử dụng: 'May I jump in here for a second?' để bước vào cuộc hội thoại mượt mà.",
+          transcript: [
+            {
+              start: 588,
+              end: 597,
+              speaker: "Colleague",
+              en: "We need to reallocate the entire budget immediately to marketing.",
+              vi: "Chúng ta cần tái phân bổ toàn bộ ngân sách ngay lập tức cho tiếp thị."
+            },
+            {
+              start: 598,
+              end: 608,
+              speaker: "You",
+              en: "Sorry to interrupt, but may I quickly clarify the operational costs first?",
+              vi: "Xin lỗi vì ngắt lời, nhưng liệu tôi có thể làm rõ chi phí vận hành trước được không?"
+            }
+          ],
+          roleplay: {
+            scenario: "Cuộc họp đang đi lạc đề, bạn cần kéo mọi người về chương trình nghị sự.",
+            options: [
+              {
+                tone: "Điều phối chuyên nghiệp",
+                reply: "If I may jump in, let's keep this discussion parked and focus on our core agenda.",
+                tip: "Dùng từ 'keep this parked' để ghi nhận ý kiến nhưng không làm loãng họp."
+              }
+            ]
+          }
+        }
+      ],
+      glossary: {
+        "scope": { ipa: "/skoʊp/", vi: "Phạm vi công việc đã thỏa thuận trong hợp đồng dự án." },
+        "compromise": { ipa: "/ˈkɑːm.prə.maɪz/", vi: "Làm giảm sút, tổn hại chất lượng hoặc độ tin cậy." },
+        "prioritize": { ipa: "/praɪˈɔːr.ə.taɪz/", vi: "Ưu tiên việc quan trọng lên hàng đầu." },
+        "urgency": { ipa: "/ˈɝː.dʒən.si/", vi: "Tính khẩn cấp, vấn đề cần xử lý gấp." },
+        "eventful": { ipa: "/ɪˈvent.fəl/", vi: "Nhiều sự kiện sôi nổi, bận rộn tích cực." },
+        "reallocate": { ipa: "/ˌriːˈæl.ə.keɪt/", vi: "Tái phân bổ nguồn lực hoặc ngân sách." }
+      }
+    };
+
+    // ĐỊNH NGHĨA CÁC CẤP TIẾN HÓA CỦA CÂY
+    const PLANT_STAGES = [
+      { level: 1, name: "Hạt Mầm", icon: "🌰", maxExp: 50, desc: "Một hạt mầm nhỏ vừa gieo xuống đất ẩm. Hãy bắt đầu tưới tắm từ vựng nhé!" },
+      { level: 2, name: "Chồi Non", icon: "🌱", maxExp: 100, desc: "Chồi non đã nhú lên 2 chiếc lá xanh đầu tiên. Bạn đang tạo thói quen rất tốt!" },
+      { level: 3, name: "Sen Đá Văn Phòng", icon: "🌿", maxExp: 200, desc: "Cây phát triển cứng cáp trên góc bàn làm việc, tự tin ứng biến tình huống." },
+      { level: 4, name: "Cây Trầu Bà", icon: "🪴", maxExp: 350, desc: "Tán lá sum sê, phản xạ tiếng Anh của bạn đã trở nên tự nhiên hơn mỗi ngày." },
+      { level: 5, name: "Đại Thụ Tiếng Anh", icon: "🌳", maxExp: 500, desc: "Bạn đã đạt cấp độ cao nhất! Giao tiếp công sở lưu loát và tự tin như tiếng mẹ đẻ." }
+    ];
+
+    // STATE MANAGEMENT
+    let ytPlayer = null;
+    let currentLesson = null;
+    let currentLineIndex = -1;
+    let isLoopingLine = false;
+    let syncInterval = null;
+    let savedStickers = JSON.parse(localStorage.getItem('biz_stickers') || '[]');
+    let currentSelectedWord = null;
+
+    // Quản lý EXP & Cây
+    let plantState = JSON.parse(localStorage.getItem('biz_plant_state') || JSON.stringify({
+      level: 2,
+      exp: 40,
+      streak: 3
+    }));
+
+    // KHỞI CHẠY HỆ THỐNG
+    function initApp() {
+      initTheme();
+      updatePlantUI();
+      updateStickerBadge();
+      renderMenuCards('all');
+    }
+
+    // Theme Dark / Light
+    function initTheme() {
+      const saved = localStorage.getItem('biz_theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-icon').className = 'ph-bold ph-sun text-base text-amber-400';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('theme-icon').className = 'ph-bold ph-moon text-base';
+      }
+    }
+
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('biz_theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-icon').className = isDark ? 'ph-bold ph-sun text-base text-amber-400' : 'ph-bold ph-moon text-base';
+    }
+
+    // Cập nhật giao diện Cây xanh
+    function updatePlantUI() {
+      const curStage = PLANT_STAGES.find(s => s.level === plantState.level) || PLANT_STAGES[0];
+      const percent = Math.min(100, Math.round((plantState.exp / curStage.maxExp) * 100));
+
+      // Cập nhật Nav
+      document.getElementById('nav-plant-icon').innerText = curStage.icon;
+      document.getElementById('nav-plant-level-name').innerText = `Cấp ${curStage.level}: ${curStage.name}`;
+      document.getElementById('nav-exp-bar').style.width = `${percent}%`;
+
+      // Cập nhật Banner
+      document.getElementById('hero-plant-display').innerText = curStage.icon;
+      document.getElementById('hero-plant-name').innerText = `${curStage.name} (Cấp ${curStage.level})`;
+      document.getElementById('hero-exp-bar').style.width = `${percent}%`;
+      document.getElementById('hero-exp-text').innerText = `${plantState.exp} / ${curStage.maxExp} EXP`;
+
+      // Cập nhật Modal
+      document.getElementById('modal-plant-icon').innerText = curStage.icon;
+      document.getElementById('modal-plant-title').innerText = `Cấp ${curStage.level}: ${curStage.name}`;
+      document.getElementById('modal-plant-desc').innerText = curStage.desc;
+      document.getElementById('modal-exp-count').innerText = `${plantState.exp} / ${curStage.maxExp} EXP`;
+      document.getElementById('modal-exp-bar').style.width = `${percent}%`;
+    }
+
+    // TÍNH NĂNG TƯỚI CÂY & LÊN CẤP KHI HỌC XONG BÀI
+    function finishAndWaterPlant() {
+      const expGain = 50;
+      plantState.exp += expGain;
+
+      let curStage = PLANT_STAGES.find(s => s.level === plantState.level);
+      let didLevelUp = false;
+
+      if (plantState.exp >= curStage.maxExp && plantState.level < PLANT_STAGES.length) {
+        plantState.level += 1;
+        plantState.exp = plantState.exp - curStage.maxExp;
+        didLevelUp = true;
+      }
+
+      localStorage.setItem('biz_plant_state', JSON.stringify(plantState));
+      updatePlantUI();
+
+      // Hiển thị Toast
+      const toast = document.getElementById('growth-toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastSub = document.getElementById('toast-sub');
+      const toastIcon = document.getElementById('toast-icon');
+
+      curStage = PLANT_STAGES.find(s => s.level === plantState.level);
+
+      if (didLevelUp) {
+        toastTitle.innerText = `Chúc mừng! Cây đã tiến hóa lên ${curStage.name} 🎉`;
+        toastSub.innerText = `Bạn vừa được thăng cấp ${curStage.level}. Phản xạ tiếng Anh đang nở rộ!`;
+        toastIcon.innerText = curStage.icon;
+      } else {
+        toastTitle.innerText = `Đã tưới nước thành công! (+50 EXP) 💧`;
+        toastSub.innerText = `Cây đã hấp thụ thêm giọt nước dinh dưỡng hôm nay!`;
+        toastIcon.innerText = "🌱";
+      }
+
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4500);
+
+      goToHome();
+    }
+
+    // RENDER MENU BÀI HỌC
+    function renderMenuCards(cat) {
+      const container = document.getElementById('lesson-cards-container');
+      container.innerHTML = '';
+      const list = (cat === 'all') ? APP_DATABASE.lessons : APP_DATABASE.lessons.filter(l => l.category === cat);
+
+      list.forEach(lesson => {
+        const card = document.createElement('div');
+        card.className = "bg-white dark:bg-slate-900 rounded-3xl p-5 border border-garden-100/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group";
+
+        const tagsHtml = lesson.tags.map(t => `
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-50 dark:bg-slate-800 text-garden-800 dark:text-garden-300 border border-garden-200/50 dark:border-slate-700">
+            ${t}
+          </span>
+        `).join('');
+
+        card.innerHTML = `
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-video bg-slate-900 mb-4 shadow-inner">
+              <img src="https://img.youtube.com/vi/${lesson.youtubeId}/hqdefault.jpg" alt="${lesson.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute top-2 left-2">
+                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-white">
+                  ${lesson.level}
+                </span>
+              </div>
+              <span class="absolute bottom-2 right-2 text-[10px] font-bold px-2 py-0.5 rounded-md bg-black/80 text-white font-mono">
+                ${lesson.duration}
+              </span>
+            </div>
+
+            <div class="flex flex-wrap gap-1 mb-2">
+              ${tagsHtml}
+            </div>
+
+            <h3 class="text-sm font-extrabold text-slate-900 dark:text-white group-hover:text-garden-700 dark:group-hover:text-garden-300 transition leading-snug">
+              ${lesson.title}
+            </h3>
+            
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2 leading-relaxed font-medium">
+              💡 ${lesson.takeaway}
+            </p>
+          </div>
+
+          <button onclick="openStudyRoom('${lesson.id}')" class="mt-4 w-full py-2.5 rounded-2xl bg-garden-50 hover:bg-garden-600 dark:bg-slate-800 dark:hover:bg-garden-600 text-garden-900 hover:text-white dark:text-slate-200 dark:hover:text-white text-xs font-bold transition flex items-center justify-center gap-2">
+            <span>Tưới cây & Học ngay</span>
+            <i class="ph-bold ph-arrow-right"></i>
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat) {
+      ['all', 'coffee', 'lunch', 'chill'].forEach(c => {
+        const btn = document.getElementById(`filter-btn-${c}`);
+        if (c === cat) {
+          btn.className = "px-4 py-2 rounded-2xl text-xs font-bold transition bg-garden-700 text-white shadow-sm flex items-center gap-1.5";
+        } else {
+          btn.className = "px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5";
+        }
+      });
+      renderMenuCards(cat);
+    }
+
+    // MỞ PHÒNG HỌC & NHÚNG VIDEO YOUTUBE AN TOÀN
+    function openStudyRoom(lessonId) {
+      currentLesson = APP_DATABASE.lessons.find(l => l.id === lessonId);
+      if (!currentLesson) return;
+
+      document.getElementById('menu-view').classList.add('hidden');
+      document.getElementById('study-room-view').classList.remove('hidden');
+
+      document.getElementById('study-badge-level').innerText = currentLesson.level;
+      document.getElementById('study-badge-duration').innerText = currentLesson.duration;
+
+      renderChatBubbles();
+      renderRoleplayChallenge();
+
+      // CƠ CHẾ EMBED YOUTUBE TIÊU CHUẨN (HOẠT ĐỘNG 100% TRÊN GITHUB PAGES / LOCAL)
+      const wrapper = document.getElementById('video-wrapper');
+      const startSec = currentLesson.transcript[0] ? currentLesson.transcript[0].start : 0;
+      wrapper.innerHTML = `
+        <iframe 
+          id="active-yt-iframe"
+          class="absolute top-0 left-0 w-full h-full border-0" 
+          src="https://www.youtube-nocookie.com/embed/${currentLesson.youtubeId}?enablejsapi=1&start=${startSec}&rel=0&modestbranding=1&playsinline=1"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      `;
+
+      // Khởi tạo đối tượng YT.Player để hỗ trợ điều khiển
+      setTimeout(() => {
+        if (window.YT && YT.Player) {
+          try {
+            ytPlayer = new YT.Player('active-yt-iframe', {
+              events: {
+                onError: (e) => console.log('YT error:', e)
+              }
+            });
+          } catch(e) {
+            console.log('Player init defer:', e);
+          }
+        }
+      }, 500);
+
+      startSubtitlesSync();
+    }
+
+    function goToHome() {
+      if (ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+      if (syncInterval) clearInterval(syncInterval);
+      document.getElementById('study-room-view').classList.add('hidden');
+      document.getElementById('menu-view').classList.remove('hidden');
+    }
+
+    // ĐỒNG BỘ PHỤ ĐỀ
+    function startSubtitlesSync() {
+      if (syncInterval) clearInterval(syncInterval);
+      syncInterval = setInterval(() => {
+        if (!ytPlayer || !ytPlayer.getCurrentTime) return;
+        const currentTime = ytPlayer.getCurrentTime();
+
+        const activeIdx = currentLesson.transcript.findIndex(t => currentTime >= t.start && currentTime <= t.end);
+        if (activeIdx !== -1 && activeIdx !== currentLineIndex) {
+          highlightChatBubble(activeIdx);
+        }
+
+        if (isLoopingLine && currentLineIndex !== -1) {
+          const currentSub = currentLesson.transcript[currentLineIndex];
+          if (currentTime >= currentSub.end) {
+            ytPlayer.seekTo(currentSub.start, true);
+          }
+        }
+      }, 250);
+    }
+
+    function renderChatBubbles() {
+      const container = document.getElementById('chat-bubbles-container');
+      container.innerHTML = '';
+
+      currentLesson.transcript.forEach((t, idx) => {
+        const isYou = (t.speaker === 'You');
+        const bubble = document.createElement('div');
+        bubble.id = `chat-bubble-${idx}`;
+        
+        const alignStyle = isYou 
+          ? "ml-4 bg-garden-50/70 dark:bg-garden-950/30 border-garden-200/80 dark:border-garden-800" 
+          : "mr-4 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800";
+
+        bubble.className = `p-3.5 rounded-2xl border text-xs transition-all duration-200 cursor-pointer space-y-1.5 ${alignStyle}`;
+        bubble.onclick = () => jumpToTimestamp(t.start);
+
+        const wordsHtml = t.en.split(' ').map(w => {
+          const clean = w.replace(/[^a-zA-Z]/g, '').toLowerCase();
+          return `<span onclick="event.stopPropagation(); handleWordClick(event, '${clean}', '${w}')" class="hover:text-garden-700 hover:underline cursor-pointer font-bold">${w}</span>`;
+        }).join(' ');
+
+        bubble.innerHTML = `
+          <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span class="font-extrabold ${isYou ? 'text-garden-700 dark:text-garden-400' : 'text-earth dark:text-amber-400'} font-sans">
+              ${isYou ? '🌱 Bạn (You)' : t.speaker}:
+            </span>
+            <span>${formatTime(t.start)}</span>
+          </div>
+
+          <p class="text-xs text-slate-900 dark:text-slate-100 leading-relaxed font-sans">${wordsHtml}</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium italic">${t.vi}</p>
+
+          <div class="flex items-center justify-between pt-1">
+            <button onclick="event.stopPropagation(); startShadowingLine(${idx}, ${t.start}, ${t.end})" class="text-[11px] text-garden-700 dark:text-garden-300 font-bold flex items-center gap-1 hover:underline">
+              <i class="ph-bold ph-microphone"></i> Luyện nhại giọng (Shadowing)
+            </button>
+            <span id="shadow-countdown-${idx}" class="text-[10px] font-bold text-garden-600 hidden"></span>
+          </div>
+        `;
+        container.appendChild(bubble);
+      });
+    }
+
+    function highlightChatBubble(idx) {
+      if (currentLineIndex !== -1) {
+        const prev = document.getElementById(`chat-bubble-${currentLineIndex}`);
+        if (prev) prev.classList.remove('chat-bubble-active');
+      }
+      currentLineIndex = idx;
+      const cur = document.getElementById(`chat-bubble-${idx}`);
+      if (cur) {
+        cur.classList.add('chat-bubble-active');
+        cur.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function jumpToTimestamp(sec) {
+      if (ytPlayer && ytPlayer.seekTo) {
+        ytPlayer.seekTo(sec, true);
+        ytPlayer.playVideo();
+      }
+    }
+
+    function formatTime(s) {
+      const min = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    // ĐIỀU KHIỂN TỐC ĐỘ & PHÍM TẮT
+    function setPlaySpeed(rate) {
+      if (ytPlayer && ytPlayer.setPlaybackRate) {
+        ytPlayer.setPlaybackRate(rate);
+      }
+      [0.75, 1.0, 1.25].forEach(r => {
+        const btn = document.getElementById(`spd-${r.toString().replace('.', '')}`);
+        if (r === rate) {
+          btn.className = "px-2.5 py-1 rounded-xl text-xs font-bold bg-garden-700 text-white transition";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:bg-garden-50 dark:hover:bg-slate-800 transition";
+        }
+      });
+    }
+
+    function toggleLoopCurrentLine() {
+      isLoopingLine = !isLoopingLine;
+      const btn = document.getElementById('btn-loop-line');
+      btn.className = isLoopingLine 
+        ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-garden-700 text-white flex items-center gap-1.5 transition"
+        : "px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:border-garden-400 flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300";
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('study-room-view').classList.contains('hidden')) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (ytPlayer && ytPlayer.getPlayerState) {
+          const state = ytPlayer.getPlayerState();
+          if (state === 1) ytPlayer.pauseVideo();
+          else ytPlayer.playVideo();
+        }
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        if (ytPlayer && ytPlayer.getCurrentTime) {
+          ytPlayer.seekTo(Math.max(0, ytPlayer.getCurrentTime() - 5), true);
+        }
+      }
+    });
+
+    // SHADOWING
+    function startShadowingLine(idx, start, end) {
+      if (!ytPlayer) return;
+      ytPlayer.seekTo(start, true);
+      ytPlayer.playVideo();
+
+      const duration = (end - start) * 1000;
+      setTimeout(() => {
+        ytPlayer.pauseVideo();
+        const badge = document.getElementById(`shadow-countdown-${idx}`);
+        if (!badge) return;
+        badge.classList.remove('hidden');
+        
+        let secondsLeft = 3;
+        badge.innerText = `🎙️ Lặp lại ngay: ${secondsLeft}s`;
+        const timer = setInterval(() => {
+          secondsLeft--;
+          if (secondsLeft > 0) {
+            badge.innerText = `🎙️ Lặp lại ngay: ${secondsLeft}s`;
+          } else {
+            clearInterval(timer);
+            badge.classList.add('hidden');
+          }
+        }, 1000);
+      }, duration);
+    }
+
+    // ROLEPLAY
+    function renderRoleplayChallenge() {
+      const scenarioEl = document.getElementById('roleplay-scenario');
+      const container = document.getElementById('roleplay-options-container');
+      
+      scenarioEl.innerText = currentLesson.roleplay.scenario;
+      container.innerHTML = '';
+
+      currentLesson.roleplay.options.forEach(opt => {
+        const box = document.createElement('div');
+        box.className = "p-3 rounded-2xl bg-white dark:bg-slate-800 border border-garden-200/60 dark:border-slate-700 text-xs space-y-1.5";
+        box.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-garden-800 dark:text-garden-300">${opt.tone}</span>
+            <button onclick="speakText('${opt.reply.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-garden-600 transition p-1"><i class="ph-bold ph-speaker-high text-base"></i></button>
+          </div>
+          <p class="text-slate-800 dark:text-slate-100 font-bold leading-relaxed">"${opt.reply}"</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium italic">💡 ${opt.tip}</p>
+        `;
+        container.appendChild(box);
+      });
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    // TRA TỪ & HỘP LÁ TỪ VỰNG
+    function handleWordClick(event, cleanWord, rawWord) {
+      const popover = document.getElementById('word-popover');
+      const info = (APP_DATABASE.glossary && APP_DATABASE.glossary[cleanWord]) ? APP_DATABASE.glossary[cleanWord] : {
+        ipa: `/${cleanWord}/`,
+        vi: `Thuật ngữ chuyên ngành dùng trong tình huống trao đổi công sở.`
+      };
+
+      currentSelectedWord = {
+        word: rawWord,
+        ipa: info.ipa,
+        vi: info.vi
+      };
+
+      document.getElementById('popover-word').innerText = rawWord;
+      document.getElementById('popover-ipa').innerText = info.ipa;
+      document.getElementById('popover-meaning').innerText = info.vi;
+
+      popover.style.left = `${Math.min(window.innerWidth - 300, event.clientX + 10)}px`;
+      popover.style.top = `${Math.min(window.innerHeight - 200, event.clientY + 10)}px`;
+      popover.classList.remove('hidden');
+    }
+
+    function closeWordPopover() {
+      document.getElementById('word-popover').classList.add('hidden');
+    }
+
+    function saveCurrentWordToBank() {
+      if (!currentSelectedWord) return;
+      if (!savedStickers.some(s => s.word.toLowerCase() === currentSelectedWord.word.toLowerCase())) {
+        savedStickers.push(currentSelectedWord);
+        localStorage.setItem('biz_stickers', JSON.stringify(savedStickers));
+        updateStickerBadge();
+      }
+      closeWordPopover();
+    }
+
+    function removeSticker(idx) {
+      savedStickers.splice(idx, 1);
+      localStorage.setItem('biz_stickers', JSON.stringify(savedStickers));
+      updateStickerBadge();
+      openWordBank();
+    }
+
+    function openWordBank() {
+      const modal = document.getElementById('word-bank-modal');
+      const container = document.getElementById('stickers-container');
+      container.innerHTML = '';
+
+      if (savedStickers.length === 0) {
+        container.innerHTML = `<p class="col-span-2 text-xs text-slate-400 text-center py-6 font-medium">Chưa có lá từ vựng nào. Hãy chạm vào các từ trong bài học để lưu nhé!</p>`;
+      } else {
+        savedStickers.forEach((s, idx) => {
+          const item = document.createElement('div');
+          item.className = "p-3 rounded-2xl bg-garden-50/70 dark:bg-slate-800 border border-garden-200/50 dark:border-slate-700 text-xs space-y-1 relative";
+          item.innerHTML = `
+            <div class="flex items-center justify-between">
+              <strong class="text-garden-900 dark:text-garden-300 font-bold">${s.word}</strong>
+              <div class="flex items-center gap-1.5">
+                <button onclick="speakText('${s.word}')" class="text-slate-400 hover:text-garden-600"><i class="ph-bold ph-speaker-high"></i></button>
+                <button onclick="removeSticker(${idx})" class="text-slate-300 hover:text-red-500 text-[10px]">✕</button>
+              </div>
+            </div>
+            <p class="text-[10px] text-slate-400 font-mono">${s.ipa}</p>
+            <p class="text-[11px] text-slate-700 dark:text-slate-300 font-medium">${s.vi}</p>
+          `;
+          container.appendChild(item);
+        });
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeWordBank() {
+      document.getElementById('word-bank-modal').classList.add('hidden');
+    }
+
+    function updateStickerBadge() {
+      document.getElementById('sticker-count').innerText = savedStickers.length;
+    }
+
+    // MODAL TIẾN TRÌNH CÂY
+    function openGardenModal() {
+      document.getElementById('garden-modal').classList.remove('hidden');
+    }
+
+    function closeGardenModal() {
+      document.getElementById('garden-modal').classList.add('hidden');
+    }
+
+    document.addEventListener('click', (e) => {
+      const pop = document.getElementById('word-popover');
+      if (!pop.classList.contains('hidden') && !pop.contains(e.target)) {
+        closeWordPopover();
+      }
+    });
+
+    // Chạy khi khởi động
+    initApp();
+  </script>
+</body>
+</html>
