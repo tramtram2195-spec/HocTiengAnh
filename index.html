@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BizEnglish Café - Cozy Study Hub</title>
 
-  <!-- Google Font: Nunito tròn trịa, ấm áp -->
+  <!-- Google Font: Nunito tròn trịa, ấm áp & JetBrains Mono cho số/thời gian -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -122,10 +122,10 @@
       <!-- Lời chào chữa lành -->
       <div class="p-6 rounded-3xl bg-gradient-to-r from-amber-100/70 via-orange-50/50 to-emerald-50/40 dark:from-slate-900 dark:to-slate-800 border border-amber-200/60 dark:border-slate-800 shadow-sm">
         <div class="max-w-xl">
-          <span class="text-xs font-extrabold tracking-wider uppercase text-amber-800 dark:text-amber-400">🍵 Chào ngày mới, Trâm Võ!</span>
+          <span class="text-xs font-extrabold tracking-wider uppercase text-amber-800 dark:text-amber-400">☕ Chào bạn, ngày mới an yên!</span>
           <h2 class="text-2xl font-black text-slate-900 dark:text-white mt-1 leading-snug">Hôm nay bạn muốn thưởng thức tách tiếng Anh nào?</h2>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 font-medium">
-            Chọn một khoảng nghỉ giải lao phù hợp để nạp nhanh kỹ năng công sở mà không bị quá tải.
+            Chọn một khoảng thời gian nghỉ giải lao để nạp nhanh một kỹ năng công sở thực chiến.
           </p>
         </div>
       </div>
@@ -170,9 +170,9 @@
         <!-- CỘT TRÁI: VIDEO & ROLEPLAY -->
         <div class="lg:col-span-7 space-y-4">
           
-          <!-- IFrame YouTube bo tròn mềm -->
+          <!-- IFrame YouTube bo tròn mềm với container wrapper có thể reset an toàn -->
           <div class="bg-black rounded-3xl overflow-hidden shadow-lg border border-amber-200/40 dark:border-slate-800">
-            <div class="relative w-full pb-[56.25%] bg-black">
+            <div class="relative w-full pb-[56.25%] bg-black" id="video-wrapper">
               <div id="youtube-player" class="absolute top-0 left-0 w-full h-full"></div>
             </div>
           </div>
@@ -313,27 +313,44 @@
       document.getElementById('theme-icon').className = isDark ? 'ph-bold ph-sun text-base text-amber-400' : 'ph-bold ph-moon text-base';
     }
 
-    // YouTube API Ready
+    // YouTube API Ready Callback
     window.onYouTubeIframeAPIReady = function() {
       isYTApiReady = true;
       if (pendingVideoId) {
-        initYouTubePlayer(pendingVideoId);
+        mountYouTubePlayer(pendingVideoId);
         pendingVideoId = null;
       }
     };
 
-    function initYouTubePlayer(videoId) {
+    // Tạo hoặc tái tạo player an toàn
+    function mountYouTubePlayer(videoId) {
       if (!isYTApiReady) {
         pendingVideoId = videoId;
         return;
       }
+
+      if (ytPlayer && ytPlayer.destroy) {
+        try { ytPlayer.destroy(); } catch (e) {}
+        ytPlayer = null;
+      }
+
+      const wrapper = document.getElementById('video-wrapper');
+      wrapper.innerHTML = `<div id="youtube-player" class="absolute top-0 left-0 w-full h-full"></div>`;
+
       ytPlayer = new YT.Player('youtube-player', {
         videoId: videoId,
+        host: 'https://www.youtube-nocookie.com',
         playerVars: {
-          'playsinline': 1,
-          'rel': 0,
-          'modestbranding': 1,
-          'controls': 1
+          playsinline: 1,
+          rel: 0,
+          modestbranding: 1,
+          controls: 1,
+          origin: window.location.origin || '*'
+        },
+        events: {
+          onError: function(e) {
+            console.warn("YouTube Player error:", e.data);
+          }
         }
       });
     }
@@ -429,12 +446,7 @@
       renderChatBubbles();
       renderRoleplayChallenge();
 
-      if (ytPlayer && ytPlayer.loadVideoById) {
-        ytPlayer.loadVideoById(currentLesson.youtubeId);
-      } else {
-        initYouTubePlayer(currentLesson.youtubeId);
-      }
-
+      mountYouTubePlayer(currentLesson.youtubeId);
       startSubtitlesSync();
     }
 
@@ -457,7 +469,6 @@
           highlightChatBubble(activeIdx);
         }
 
-        // Loop câu
         if (isLoopingLine && currentLineIndex !== -1) {
           const currentSub = currentLesson.transcript[currentLineIndex];
           if (currentTime >= currentSub.end) {
@@ -467,7 +478,7 @@
       }, 250);
     }
 
-    // Render Bong bóng thoại (Phân biệt vai You và Partner)
+    // Render Bong bóng thoại
     function renderChatBubbles() {
       const container = document.getElementById('chat-bubbles-container');
       container.innerHTML = '';
@@ -477,7 +488,6 @@
         const bubble = document.createElement('div');
         bubble.id = `chat-bubble-${idx}`;
         
-        // Kiểu dáng phân vai đẹp mắt
         const alignStyle = isYou 
           ? "ml-4 bg-emerald-50/60 dark:bg-emerald-950/30 border-emerald-200/80 dark:border-emerald-800" 
           : "mr-4 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800";
@@ -538,7 +548,7 @@
       return `${min}:${sec < 10 ? '0' : ''}${sec}`;
     }
 
-    // Điều khiển tốc độ & Loop
+    // Tốc độ & Loop
     function setPlaySpeed(rate) {
       if (ytPlayer && ytPlayer.setPlaybackRate) {
         ytPlayer.setPlaybackRate(rate);
@@ -561,7 +571,7 @@
         : "px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:border-amber-400 flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300";
     }
 
-    // Phím tắt bàn phím
+    // Phím tắt Space & ArrowLeft
     window.addEventListener('keydown', (e) => {
       if (document.getElementById('study-room-view').classList.contains('hidden')) return;
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -581,7 +591,7 @@
       }
     });
 
-    // Shadowing: Đếm ngược trực quan (thay vì alert)
+    // Shadowing trực quan
     function startShadowingLine(idx, start, end) {
       if (!ytPlayer) return;
       ytPlayer.seekTo(start, true);
@@ -640,7 +650,7 @@
       }
     }
 
-    // Click-to-explain từ vựng
+    // Tra từ 1 chạm
     function handleWordClick(event, cleanWord, rawWord) {
       const popover = document.getElementById('word-popover');
       const info = (appData.glossary && appData.glossary[cleanWord]) ? appData.glossary[cleanWord] : {
@@ -722,7 +732,7 @@
       document.getElementById('sticker-count').innerText = savedStickers.length;
     }
 
-    // Hoàn thành bài học
+    // Hoàn thành bài
     function finishLesson() {
       const toast = document.getElementById('healing-toast');
       toast.classList.remove('hidden');
@@ -732,7 +742,6 @@
       goToHome();
     }
 
-    // Click ra ngoài để tắt popover tra từ
     document.addEventListener('click', (e) => {
       const pop = document.getElementById('word-popover');
       if (!pop.classList.contains('hidden') && !pop.contains(e.target)) {
@@ -740,7 +749,6 @@
       }
     });
 
-    // Chạy app
     initApp();
   </script>
 </body>
