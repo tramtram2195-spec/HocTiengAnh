@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BizSprout - Khu Vườn Tiếng Anh Công Sở</title>
+  <title>BizSprout - Corporate English Learning Garden</title>
 
-  <!-- Google Font: Quicksand & Nunito bo tròn, tự nhiên -->
+  <!-- Google Font: Quicksand & Nunito -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,6 @@
               800: '#235034',
               900: '#1A3C27'
             },
-            leaf: '#5DB075',
             earth: '#8D6E63'
           }
         }
@@ -53,7 +52,7 @@
     .chat-bubble-active {
       background-color: #E8F5E9 !important;
       border-color: #4CAF50 !important;
-      transform: scale(1.015);
+      transform: scale(1.012);
       box-shadow: 0 4px 14px rgba(76, 175, 80, 0.2);
     }
     .dark .chat-bubble-active {
@@ -64,37 +63,35 @@
 
     @keyframes bounce-plant {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-8px) scale(1.05); }
+      50% { transform: translateY(-6px) scale(1.03); }
     }
     .plant-bounce {
-      animation: bounce-plant 1.2s ease-in-out infinite;
+      animation: bounce-plant 1.4s ease-in-out infinite;
     }
   </style>
 </head>
 <body class="bg-[#F6FAF7] dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col font-sans transition-colors">
 
   <!-- TOP APP BAR -->
-  <header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-garden-100 dark:border-slate-800 sticky top-0 z-40">
+  <header class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-garden-100/80 dark:border-slate-800 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       
-      <!-- Logo Khu Vườn Tiếng Anh -->
+      <!-- Logo -->
       <div class="flex items-center gap-3 cursor-pointer select-none" onclick="goToHome()">
         <div class="w-10 h-10 rounded-2xl bg-garden-600 flex items-center justify-center text-white text-xl shadow-md shadow-garden-200/50 dark:shadow-none">
           🌱
         </div>
         <div>
           <span class="text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 font-display">
-            BizSprout 
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 dark:bg-garden-950/80 text-garden-700 dark:text-garden-300">Office Garden</span>
+            BizSprout <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 dark:bg-garden-950/80 text-garden-700 dark:text-garden-300">Corporate Garden</span>
           </span>
-          <p class="text-[11px] text-slate-500 dark:text-slate-400">Tưới tắm tiếng Anh mỗi ngày cho ngày dài dịu êm</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400">Nền tảng phản xạ tiếng Anh văn phòng 5 phút mỗi ngày</p>
         </div>
       </div>
 
-      <!-- Thống kê Cây & Giọt Nước EXP -->
+      <!-- Tiện ích Bar -->
       <div class="flex items-center gap-2 sm:gap-3">
-        
-        <!-- Widget Cây Xanh Thu Nhỏ -->
+        <!-- Widget Cây Xanh Cấp Độ -->
         <div onclick="openGardenModal()" class="cursor-pointer flex items-center gap-2 bg-garden-50 dark:bg-slate-800 border border-garden-200/80 dark:border-slate-700 px-3 py-1.5 rounded-2xl text-xs font-bold transition hover:bg-garden-100/70">
           <span id="nav-plant-icon" class="text-base select-none">🌱</span>
           <div class="flex flex-col text-left">
@@ -122,65 +119,126 @@
   </header>
 
   <!-- NỘI DUNG CHÍNH -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full space-y-10">
 
-    <!-- VIEW 1: VƯỜN ƯƠM BÀI HỌC (HOME VIEW) -->
-    <section id="menu-view" class="space-y-6">
+    <!-- VIEW 1: TRANG CHỦ & DANH SÁCH BÀI HỌC DÀI -->
+    <section id="menu-view" class="space-y-10">
       
-      <!-- HERO BANNER: GÓC BÀN LÀM VIỆC & CÂY XANH -->
-      <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-garden-100/90 via-emerald-50/60 to-white dark:from-slate-900 dark:via-slate-900 dark:to-garden-950/40 border border-garden-200/70 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="space-y-2 max-w-xl text-center md:text-left">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-garden-200/60 dark:bg-slate-800 text-garden-900 dark:text-garden-200 text-xs font-bold">
-            <span>🪴 Góc bàn làm việc ảo</span>
+      <!-- HERO BANNER: MÔ HÌNH CÂY CÔNG SỞ & LỜI CHÀO -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-garden-100/90 via-emerald-50/60 to-white dark:from-slate-900 dark:via-slate-900 dark:to-garden-950/40 border border-garden-200/70 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-3 max-w-xl text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-garden-200/70 dark:bg-slate-800 text-garden-900 dark:text-garden-200 text-xs font-bold">
+            <span>🪴 Bàn Làm Việc Ảo</span>
             <span class="text-slate-400">•</span>
-            <span id="streak-label">Chuỗi 3 ngày chăm chỉ 🔥</span>
+            <span>Chuỗi 3 ngày liên tục 🔥</span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-display leading-tight">
-            Tưới tắm tiếng Anh mỗi ngày, cây sẽ lớn cùng bạn!
-          </h2>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white font-display leading-tight">
+            Tưới tắm tiếng Anh mỗi ngày, phản xạ lớn cùng cây xanh.
+          </h1>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-            Mỗi bài học hoàn thành tặng bạn <strong>+50 giọt nước EXP</strong> giúp mầm cây phát triển từ chồi non bé bỏng thành đại thụ công sở sum suê.
+            Chọn một bài học theo khoảng thời gian giải lao để nạp ngay cấu trúc giao tiếp thực chiến. Mỗi bài hoàn thành cộng <strong>+50 Giọt Nước EXP</strong> giúp cây tiến hóa.
           </p>
         </div>
 
-        <!-- MÔ HÌNH CÂY CỦA BẠN -->
-        <div class="flex flex-col items-center p-4 rounded-3xl bg-white/80 dark:bg-slate-800/80 border border-garden-200/60 dark:border-slate-700 min-w-[200px] shadow-sm">
-          <div id="hero-plant-display" class="text-5xl my-2 plant-bounce select-none">
-            🌱
-          </div>
+        <!-- CÂY TIẾN HÓA TRỰC QUAN -->
+        <div class="flex flex-col items-center p-5 rounded-3xl bg-white/90 dark:bg-slate-800/90 border border-garden-200/60 dark:border-slate-700 min-w-[220px] shadow-sm">
+          <div id="hero-plant-display" class="text-6xl my-2 plant-bounce select-none">🌱</div>
           <span id="hero-plant-name" class="text-xs font-black text-garden-800 dark:text-garden-300 font-display">Chồi Non Lớp 2</span>
-          <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden mt-2">
+          <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden mt-3">
             <div id="hero-exp-bar" class="bg-garden-500 h-full rounded-full transition-all duration-700" style="width: 40%"></div>
           </div>
-          <p id="hero-exp-text" class="text-[10px] text-slate-400 font-mono mt-1">40 / 100 EXP</p>
+          <p id="hero-exp-text" class="text-[10px] text-slate-400 font-mono mt-1.5 font-semibold">40 / 100 EXP</p>
         </div>
       </div>
 
-      <!-- BỘ LỌC CHU TRÌNH TƯỚI CÂY -->
-      <div class="flex flex-wrap items-center gap-2.5" id="category-filters">
-        <button onclick="filterCategory('all')" id="filter-btn-all" class="px-4 py-2 rounded-2xl text-xs font-bold transition bg-garden-700 text-white shadow-sm flex items-center gap-1.5">
-          <span>✨ Tất cả mầm cây</span>
-        </button>
-        <button onclick="filterCategory('coffee')" id="filter-btn-coffee" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5">
-          <span>💧 Tưới nhanh (3–5 phút)</span>
-        </button>
-        <button onclick="filterCategory('lunch')" id="filter-btn-lunch" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5">
-          <span>🍃 Chăm lá (10–15 phút)</span>
-        </button>
-        <button onclick="filterCategory('chill')" id="filter-btn-chill" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5">
-          <span>🌳 Bón rễ (15–20 phút)</span>
-        </button>
+      <!-- BẢNG ĐIỀU KHIỂN CHỈ SỐ NĂNG SUẤT (PRODUCTIVITY DASHBOARD) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-garden-50 dark:bg-slate-800 text-garden-600 flex items-center justify-center text-xl">⏱️</div>
+          <div>
+            <span class="text-[11px] text-slate-400 font-bold block">Thời gian học</span>
+            <strong class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">42 Phút</strong>
+          </div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-slate-800 text-emerald-600 flex items-center justify-center text-xl">💧</div>
+          <div>
+            <span class="text-[11px] text-slate-400 font-bold block">Tổng giọt nước</span>
+            <strong class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">240 EXP</strong>
+          </div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-slate-800 text-amber-600 flex items-center justify-center text-xl">🌿</div>
+          <div>
+            <span class="text-[11px] text-slate-400 font-bold block">Từ vựng đã lưu</span>
+            <strong id="dashboard-sticker-count" class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">0 Lá</strong>
+          </div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 flex items-center justify-center text-xl">🎯</div>
+          <div>
+            <span class="text-[11px] text-slate-400 font-bold block">Tỷ lệ hoàn thành</span>
+            <strong class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">6/6 Bài</strong>
+          </div>
+        </div>
       </div>
 
-      <!-- KỆ BÀI HỌC CÔNG SỞ -->
+      <!-- THANH ĐIỀU HƯỚNG VÀ LỌC BÀI HỌC -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-display">Vườn Ươm Bài Học Theo Lộ Trình</h2>
+            <p class="text-xs text-slate-500 font-medium">Chọn phân loại theo nhu cầu ứng dụng thực tế</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5" id="category-filters">
+          <button onclick="filterCategory('all')" id="filter-btn-all" class="px-4 py-2 rounded-2xl text-xs font-bold transition bg-garden-700 text-white shadow-sm">
+            ✨ Tất cả mầm cây (6 bài)
+          </button>
+          <button onclick="filterCategory('coffee')" id="filter-btn-coffee" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400">
+            💧 Tưới nhanh (3–5 phút)
+          </button>
+          <button onclick="filterCategory('lunch')" id="filter-btn-lunch" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400">
+            🍃 Chăm lá (10–15 phút)
+          </button>
+          <button onclick="filterCategory('chill')" id="filter-btn-chill" class="px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400">
+            🌳 Bón rễ (15–20 phút)
+          </button>
+        </div>
+      </div>
+
+      <!-- DANH SÁCH BÀI HỌC (GRID CARD) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="lesson-cards-container"></div>
+
+      <!-- KHU VỰC CAM KẾT & KINH NGHIỆM HỌC HIỆU QUẢ -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 space-y-4">
+        <h3 class="text-base font-black text-slate-900 dark:text-white font-display flex items-center gap-2">
+          <span>🌿</span> 3 Bước Luyện Nói Phản Xạ Nhanh Cùng BizSprout
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+          <div class="p-4 rounded-2xl bg-garden-50/60 dark:bg-slate-800 space-y-1.5 border border-garden-100 dark:border-slate-700">
+            <strong class="text-garden-800 dark:text-garden-300 font-bold block text-sm">1. Nghe & Đọc Phụ Đề</strong>
+            <p>Nghe người bản xứ phát âm qua video, bấm vào từng câu thoại để đồng bộ ngữ điệu tự nhiên.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-garden-50/60 dark:bg-slate-800 space-y-1.5 border border-garden-100 dark:border-slate-700">
+            <strong class="text-garden-800 dark:text-garden-300 font-bold block text-sm">2. Nhại Giọng (Shadowing)</strong>
+            <p>Bấm nút Shadowing, nhại lại to rõ câu thoại trong 3 giây tạm dừng để điều chỉnh khẩu hình.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-garden-50/60 dark:bg-slate-800 space-y-1.5 border border-garden-100 dark:border-slate-700">
+            <strong class="text-garden-800 dark:text-garden-300 font-bold block text-sm">3. Thử Thách Đóng Vai</strong>
+            <p>Đọc tình huống giả định và chọn câu phản hồi khéo léo để khắc sâu cấu trúc câu vào phản xạ.</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <!-- VIEW 2: PHÒNG HỌC & VIDEO YOUTUBE -->
-    <section id="study-room-view" class="hidden space-y-4">
+    <!-- VIEW 2: MÀN HÌNH HỌC TẬP & PHÁT VIDEO CHUYÊN NGHIỆP -->
+    <section id="study-room-view" class="hidden space-y-6">
       
       <!-- Top Action Bar -->
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between pb-3 border-b border-garden-100 dark:border-slate-800">
         <button onclick="goToHome()" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-garden-700 dark:hover:text-garden-300 flex items-center gap-1.5 transition">
           <i class="ph-bold ph-arrow-left text-base"></i> Về Vườn Ươm Bài Học
         </button>
@@ -194,13 +252,13 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         <!-- CỘT TRÁI: VIDEO YOUTUBE + ROLEPLAY -->
-        <div class="lg:col-span-7 space-y-4">
+        <div class="lg:col-span-7 space-y-5">
           
           <div class="bg-black rounded-3xl overflow-hidden shadow-xl border border-garden-200/60 dark:border-slate-800">
             <div class="relative w-full pb-[56.25%] bg-black" id="video-wrapper"></div>
           </div>
 
-          <!-- Thanh điều khiển: Tốc độ + Loop + Luyện nói -->
+          <!-- Thanh điều khiển tốc độ & loop -->
           <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm space-y-2.5">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-1.5">
@@ -217,25 +275,25 @@
             </div>
 
             <p class="text-[11px] text-slate-400 flex items-center gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800">
-              <i class="ph-bold ph-keyboard"></i> Phím tắt: <strong>Space</strong> (Dừng/Phát) • <strong>Phím ←</strong> (Tua lại 5s để tập nhại giọng).
+              <i class="ph-bold ph-keyboard"></i> Phím tắt nhanh: <strong>Space</strong> (Dừng/Phát) • <strong>Phím ←</strong> (Tua lại 5s để tập nhại giọng).
             </p>
           </div>
 
           <!-- Tình huống phản xạ đóng vai (Role-play Challenge) -->
-          <div class="p-5 rounded-3xl bg-gradient-to-br from-garden-50/70 to-emerald-50/40 dark:from-slate-900 dark:to-slate-900 border border-garden-200/70 dark:border-slate-800 space-y-3">
+          <div class="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-garden-50/70 to-emerald-50/40 dark:from-slate-900 dark:to-slate-900 border border-garden-200/70 dark:border-slate-800 space-y-3.5">
             <div class="flex items-center gap-2">
-              <span class="text-lg">🌿</span>
+              <span class="text-xl">🌿</span>
               <h3 class="text-xs font-extrabold uppercase tracking-wider text-garden-800 dark:text-garden-400">Tình huống phản xạ thực tế (Role-Play)</h3>
             </div>
             <p id="roleplay-scenario" class="text-xs font-bold text-slate-800 dark:text-slate-200 leading-relaxed">...</p>
-            <div id="roleplay-options-container" class="space-y-2.5 pt-1"></div>
+            <div id="roleplay-options-container" class="space-y-3 pt-1"></div>
           </div>
 
         </div>
 
         <!-- CỘT PHẢI: KỊCH BẢN THOẠI & TRA TỪ NHANH -->
         <div class="lg:col-span-5 space-y-4">
-          <div class="p-4 rounded-3xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm flex flex-col h-[650px]">
+          <div class="p-4 sm:p-5 rounded-3xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm flex flex-col h-[680px]">
             
             <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
@@ -265,6 +323,16 @@
     </section>
 
   </main>
+
+  <!-- FOOTER CHUYÊN NGHIỆP DÀNH CHO DÂN CÔNG SỞ -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-garden-100 dark:border-slate-800 py-8 text-center text-xs text-slate-400 space-y-2 mt-auto">
+    <div class="flex items-center justify-center gap-2 font-display font-bold text-slate-600 dark:text-slate-300">
+      <span>🌱 BizSprout</span>
+      <span>•</span>
+      <span>Micro-Learning for Professionals</span>
+    </div>
+    <p>Thiết kế dành cho những người đi làm bận rộn muốn nâng cao phản xạ tiếng Anh mỗi ngày.</p>
+  </footer>
 
   <!-- POPOVER TRA TỪ 1 CHẠM -->
   <div id="word-popover" class="fixed hidden z-50 bg-white dark:bg-slate-800 border border-garden-200 dark:border-slate-700 shadow-2xl rounded-2xl p-4 w-72 transition-all">
@@ -333,7 +401,7 @@
   <script>
     let appData = null;
 
-    // ĐỊNH NGHĨA CÁC CẤP TIẾN HÓA CỦA CÂY
+    // CÁC CẤP TIẾN HÓA CỦA CÂY
     const PLANT_STAGES = [
       { level: 1, name: "Hạt Mầm", icon: "🌰", maxExp: 50, desc: "Một hạt mầm nhỏ vừa gieo xuống đất ẩm. Hãy bắt đầu tưới tắm từ vựng nhé!" },
       { level: 2, name: "Chồi Non", icon: "🌱", maxExp: 100, desc: "Chồi non đã nhú lên 2 chiếc lá xanh đầu tiên. Bạn đang tạo thói quen rất tốt!" },
@@ -342,7 +410,6 @@
       { level: 5, name: "Đại Thụ Tiếng Anh", icon: "🌳", maxExp: 500, desc: "Bạn đã đạt cấp độ cao nhất! Giao tiếp công sở lưu loát và tự tin như tiếng mẹ đẻ." }
     ];
 
-    // STATE MANAGEMENT
     let ytPlayer = null;
     let currentLesson = null;
     let currentLineIndex = -1;
@@ -351,14 +418,13 @@
     let savedStickers = JSON.parse(localStorage.getItem('biz_stickers') || '[]');
     let currentSelectedWord = null;
 
-    // Quản lý EXP & Cây
     let plantState = JSON.parse(localStorage.getItem('biz_plant_state') || JSON.stringify({
       level: 2,
       exp: 40,
       streak: 3
     }));
 
-    // KHỞI CHẠY HỆ THỐNG
+    // KHỞI CHẠY ỨNG DỤNG
     async function initApp() {
       initTheme();
       updatePlantUI();
@@ -368,13 +434,12 @@
         const res = await fetch('database.json');
         appData = await res.json();
       } catch (err) {
-        console.warn("Không tải được database.json từ fetch, sử dụng fallback");
+        console.warn("Không tải được database.json từ fetch");
       }
       
       renderMenuCards('all');
     }
 
-    // Theme Dark / Light
     function initTheme() {
       const saved = localStorage.getItem('biz_theme');
       if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -392,23 +457,19 @@
       document.getElementById('theme-icon').className = isDark ? 'ph-bold ph-sun text-base text-amber-400' : 'ph-bold ph-moon text-base';
     }
 
-    // Cập nhật giao diện Cây xanh
     function updatePlantUI() {
       const curStage = PLANT_STAGES.find(s => s.level === plantState.level) || PLANT_STAGES[0];
       const percent = Math.min(100, Math.round((plantState.exp / curStage.maxExp) * 100));
 
-      // Cập nhật Nav
       document.getElementById('nav-plant-icon').innerText = curStage.icon;
       document.getElementById('nav-plant-level-name').innerText = `Cấp ${curStage.level}: ${curStage.name}`;
       document.getElementById('nav-exp-bar').style.width = `${percent}%`;
 
-      // Cập nhật Banner
       document.getElementById('hero-plant-display').innerText = curStage.icon;
       document.getElementById('hero-plant-name').innerText = `${curStage.name} (Cấp ${curStage.level})`;
       document.getElementById('hero-exp-bar').style.width = `${percent}%`;
       document.getElementById('hero-exp-text').innerText = `${plantState.exp} / ${curStage.maxExp} EXP`;
 
-      // Cập nhật Modal
       document.getElementById('modal-plant-icon').innerText = curStage.icon;
       document.getElementById('modal-plant-title').innerText = `Cấp ${curStage.level}: ${curStage.name}`;
       document.getElementById('modal-plant-desc').innerText = curStage.desc;
@@ -416,7 +477,6 @@
       document.getElementById('modal-exp-bar').style.width = `${percent}%`;
     }
 
-    // TÍNH NĂNG TƯỚI CÂY & LÊN CẤP KHI HỌC XONG BÀI
     function finishAndWaterPlant() {
       const expGain = 50;
       plantState.exp += expGain;
@@ -433,7 +493,6 @@
       localStorage.setItem('biz_plant_state', JSON.stringify(plantState));
       updatePlantUI();
 
-      // Hiển thị Toast
       const toast = document.getElementById('growth-toast');
       const toastTitle = document.getElementById('toast-title');
       const toastSub = document.getElementById('toast-sub');
@@ -459,7 +518,6 @@
       goToHome();
     }
 
-    // RENDER MENU BÀI HỌC
     function renderMenuCards(cat) {
       const container = document.getElementById('lesson-cards-container');
       container.innerHTML = '';
@@ -524,7 +582,6 @@
       renderMenuCards(cat);
     }
 
-    // MỞ PHÒNG HỌC & NHÚNG VIDEO YOUTUBE
     function openStudyRoom(lessonId) {
       currentLesson = appData.lessons.find(l => l.id === lessonId);
       if (!currentLesson) return;
@@ -560,7 +617,7 @@
               }
             });
           } catch(e) {
-            console.log('Player init defer:', e);
+            console.log('Player defer:', e);
           }
         }
       }, 500);
@@ -575,7 +632,6 @@
       document.getElementById('menu-view').classList.remove('hidden');
     }
 
-    // ĐỒNG BỘ PHỤ ĐỀ
     function startSubtitlesSync() {
       if (syncInterval) clearInterval(syncInterval);
       syncInterval = setInterval(() => {
@@ -665,7 +721,6 @@
       return `${min}:${sec < 10 ? '0' : ''}${sec}`;
     }
 
-    // ĐIỀU KHIỂN TỐC ĐỘ & PHÍM TẮT
     function setPlaySpeed(rate) {
       if (ytPlayer && ytPlayer.setPlaybackRate) {
         ytPlayer.setPlaybackRate(rate);
@@ -707,7 +762,6 @@
       }
     });
 
-    // SHADOWING
     function startShadowingLine(idx, start, end) {
       if (!ytPlayer) return;
       ytPlayer.seekTo(start, true);
@@ -734,7 +788,6 @@
       }, duration);
     }
 
-    // ROLEPLAY
     function renderRoleplayChallenge() {
       const scenarioEl = document.getElementById('roleplay-scenario');
       const container = document.getElementById('roleplay-options-container');
@@ -744,7 +797,7 @@
 
       currentLesson.roleplay.options.forEach(opt => {
         const box = document.createElement('div');
-        box.className = "p-3 rounded-2xl bg-white dark:bg-slate-800 border border-garden-200/60 dark:border-slate-700 text-xs space-y-1.5";
+        box.className = "p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-garden-200/60 dark:border-slate-700 text-xs space-y-1.5 shadow-sm";
         box.innerHTML = `
           <div class="flex items-center justify-between">
             <span class="font-extrabold text-garden-800 dark:text-garden-300">${opt.tone}</span>
@@ -766,7 +819,6 @@
       }
     }
 
-    // TRA TỪ & HỘP LÁ TỪ VỰNG
     function handleWordClick(event, cleanWord, rawWord) {
       const popover = document.getElementById('word-popover');
       const info = (appData.glossary && appData.glossary[cleanWord]) ? appData.glossary[cleanWord] : {
@@ -844,10 +896,12 @@
     }
 
     function updateStickerBadge() {
-      document.getElementById('sticker-count').innerText = savedStickers.length;
+      const count = savedStickers.length;
+      document.getElementById('sticker-count').innerText = count;
+      const dashEl = document.getElementById('dashboard-sticker-count');
+      if (dashEl) dashEl.innerText = `${count} Lá`;
     }
 
-    // MODAL TIẾN TRÌNH CÂY
     function openGardenModal() {
       document.getElementById('garden-modal').classList.remove('hidden');
     }
