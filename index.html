@@ -83,9 +83,9 @@
         </div>
         <div>
           <span class="text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 font-display">
-            BizSprout <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 dark:bg-garden-950/80 text-garden-700 dark:text-garden-300">Corporate Garden</span>
+            BizSprout <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 dark:bg-garden-950/80 text-garden-700 dark:text-garden-300">Cloud DB Connected</span>
           </span>
-          <p class="text-[11px] text-slate-500 dark:text-slate-400">Nền tảng phản xạ tiếng Anh văn phòng 5 phút mỗi ngày</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400">Nền tảng phản xạ tiếng Anh văn phòng - CSDL Cloud REST API</p>
         </div>
       </div>
 
@@ -102,10 +102,10 @@
           </div>
         </div>
 
-        <!-- Nút Quản Lý Database (CRUD) -->
+        <!-- Nút Quản Lý Database (Cloud CRUD) -->
         <button onclick="openDatabaseManager()" class="px-3 py-1.5 rounded-2xl border border-garden-200/80 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-garden-50 text-xs font-bold flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300">
           <i class="ph-bold ph-database text-base text-garden-600"></i>
-          <span class="hidden md:inline">Quản trị Database</span>
+          <span class="hidden md:inline">Cloud Database API</span>
         </button>
 
         <!-- Hộp Lá Từ Vựng -->
@@ -136,13 +136,13 @@
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-garden-200/70 dark:bg-slate-800 text-garden-900 dark:text-garden-200 text-xs font-bold">
             <span>🪴 Bàn Làm Việc Ảo</span>
             <span class="text-slate-400">•</span>
-            <span>Trạng thái Database: <span id="db-status-badge" class="text-emerald-700 dark:text-emerald-300">Đang đồng bộ...</span></span>
+            <span>REST API Endpoint: <span id="db-status-badge" class="text-emerald-700 dark:text-emerald-300 font-mono">Đang kết nối Cloud...</span></span>
           </div>
           <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white font-display leading-tight">
             Tưới tắm tiếng Anh mỗi ngày, phản xạ lớn cùng cây xanh.
           </h1>
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-            Dữ liệu bài học được nạp thời gian thực từ Database. Mỗi bài hoàn thành cộng <strong>+50 Giọt Nước EXP</strong> giúp cây tiến hóa.
+            Toàn bộ dữ liệu bài học, tiến độ và từ vựng được đồng bộ thời gian thực qua <strong>Cloud REST API (GET, POST, PUT, DELETE)</strong>.
           </p>
         </div>
 
@@ -157,7 +157,7 @@
         </div>
       </div>
 
-      <!-- BẢNG ĐIỀU KHIỂN CHỈ SỐ NĂNG SUẤT (PRODUCTIVITY DASHBOARD) -->
+      <!-- BẢNG ĐIỀU KHIỂN CHỈ SỐ NĂNG SUẤT -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-garden-50 dark:bg-slate-800 text-garden-600 flex items-center justify-center text-xl">⏱️</div>
@@ -170,20 +170,20 @@
           <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-slate-800 text-emerald-600 flex items-center justify-center text-xl">💧</div>
           <div>
             <span class="text-[11px] text-slate-400 font-bold block">Tổng giọt nước</span>
-            <strong class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">240 EXP</strong>
+            <strong id="dashboard-total-exp" class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">40 EXP</strong>
           </div>
         </div>
         <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-slate-800 text-amber-600 flex items-center justify-center text-xl">🌿</div>
           <div>
-            <span class="text-[11px] text-slate-400 font-bold block">Từ vựng đã lưu</span>
+            <span class="text-[11px] text-slate-400 font-bold block">Từ vựng trên Cloud</span>
             <strong id="dashboard-sticker-count" class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">0 Lá</strong>
           </div>
         </div>
         <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 flex items-center justify-center text-xl">🎯</div>
           <div>
-            <span class="text-[11px] text-slate-400 font-bold block">Tổng bài trong DB</span>
+            <span class="text-[11px] text-slate-400 font-bold block">Bài học trong CSDL</span>
             <strong id="dashboard-total-lessons" class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">0 Bài</strong>
           </div>
         </div>
@@ -193,11 +193,11 @@
       <div class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-display">Vườn Ươm Bài Học Theo Lộ Trình</h2>
-            <p class="text-xs text-slate-500 font-medium">Nạp qua fetch API từ database.json</p>
+            <h2 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-display">Vườn Ươm Bài Học (Cloud Database)</h2>
+            <p class="text-xs text-slate-500 font-medium">Được đồng bộ với máy chủ qua REST API</p>
           </div>
           <button onclick="openCreateLessonModal()" class="px-4 py-2 rounded-2xl bg-garden-600 hover:bg-garden-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition">
-            <i class="ph-bold ph-plus-circle text-base"></i> Thêm Bài Học Mới (CRUD)
+            <i class="ph-bold ph-plus-circle text-base"></i> Thêm Bài Học Mới (POST API)
           </button>
         </div>
 
@@ -219,10 +219,9 @@
 
       <!-- DANH SÁCH BÀI HỌC (GRID CARD) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="lesson-cards-container">
-        <!-- Vùng hiển thị trạng thái tải fetch -->
         <div class="col-span-full py-12 text-center text-slate-400 text-sm font-medium">
           <i class="ph-bold ph-spinner animate-spin text-2xl text-garden-600 block mb-2"></i>
-          Đang nạp dữ liệu từ database.json...
+          Đang thực hiện lệnh fetch() đọc dữ liệu từ Cloud Database...
         </div>
       </div>
 
@@ -230,8 +229,6 @@
 
     <!-- VIEW 2: MÀN HÌNH HỌC TẬP & PHÁT VIDEO CHUYÊN NGHIỆP -->
     <section id="study-room-view" class="hidden space-y-6">
-      
-      <!-- Top Action Bar -->
       <div class="flex items-center justify-between pb-3 border-b border-garden-100 dark:border-slate-800">
         <button onclick="goToHome()" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-garden-700 dark:hover:text-garden-300 flex items-center gap-1.5 transition">
           <i class="ph-bold ph-arrow-left text-base"></i> Về Vườn Ươm Bài Học
@@ -242,893 +239,14 @@
         </div>
       </div>
 
-      <!-- BỐ CỤC CHIA ĐÔI: 60% VIDEO / 40% KỊCH BẢN THOẠI -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
-        <!-- CỘT TRÁI: VIDEO YOUTUBE + ROLEPLAY -->
         <div class="lg:col-span-7 space-y-5">
-          
           <div class="bg-black rounded-3xl overflow-hidden shadow-xl border border-garden-200/60 dark:border-slate-800">
             <div class="relative w-full pb-[56.25%] bg-black" id="video-wrapper"></div>
           </div>
 
-          <!-- Thanh điều khiển tốc độ & loop -->
           <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm space-y-2.5">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-1.5">
                 <span class="text-xs font-bold text-slate-500">Tốc độ:</span>
-                <button onclick="setPlaySpeed(0.75)" id="spd-075" class="px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700">0.75x</button>
-                <button onclick="setPlaySpeed(1.0)" id="spd-100" class="px-2.5 py-1 rounded-xl text-xs font-bold bg-garden-700 text-white">1.0x</button>
-                <button onclick="setPlaySpeed(1.25)" id="spd-125" class="px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700">1.25x</button>
-              </div>
-
-              <!-- Lặp câu -->
-              <button onclick="toggleLoopCurrentLine()" id="btn-loop-line" class="px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:border-garden-400 flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300">
-                <i class="ph-bold ph-repeat text-base"></i> Lặp câu này
-              </button>
-            </div>
-
-            <p class="text-[11px] text-slate-400 flex items-center gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800">
-              <i class="ph-bold ph-keyboard"></i> Phím tắt nhanh: <strong>Space</strong> (Dừng/Phát) • <strong>Phím ←</strong> (Tua lại 5s để tập nhại giọng).
-            </p>
-          </div>
-
-          <!-- Tình huống phản xạ đóng vai (Role-play Challenge) -->
-          <div class="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-garden-50/70 to-emerald-50/40 dark:from-slate-900 dark:to-slate-900 border border-garden-200/70 dark:border-slate-800 space-y-3.5">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🌿</span>
-              <h3 class="text-xs font-extrabold uppercase tracking-wider text-garden-800 dark:text-garden-400">Tình huống phản xạ thực tế (Role-Play)</h3>
-            </div>
-            <p id="roleplay-scenario" class="text-xs font-bold text-slate-800 dark:text-slate-200 leading-relaxed">...</p>
-            <div id="roleplay-options-container" class="space-y-3 pt-1"></div>
-          </div>
-
-        </div>
-
-        <!-- CỘT PHẢI: KỊCH BẢN THOẠI & TRA TỪ NHANH -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="p-4 sm:p-5 rounded-3xl bg-white dark:bg-slate-900 border border-garden-100 dark:border-slate-800 shadow-sm flex flex-col h-[680px]">
-            
-            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-              <div>
-                <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-1.5">
-                  <i class="ph-bold ph-chat-centered-dots text-garden-600"></i> Lời thoại song ngữ & Tra từ
-                </h3>
-                <p class="text-[11px] text-slate-400 font-medium">Bấm vào câu để tua video • Chạm từ để giải nghĩa</p>
-              </div>
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-100 text-garden-800 dark:bg-garden-950 dark:text-garden-300">Live Sync</span>
-            </div>
-
-            <!-- Bong bóng thoại -->
-            <div id="chat-bubbles-container" class="flex-1 overflow-y-auto py-3 space-y-3 pr-1"></div>
-
-            <!-- Nút Hoàn Thành Bài & Tưới Nước Lên Cấp -->
-            <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
-              <button onclick="finishAndWaterPlant()" class="w-full py-3.5 rounded-2xl bg-garden-600 hover:bg-garden-700 text-white font-extrabold text-xs shadow-md shadow-garden-200 dark:shadow-none flex items-center justify-center gap-2 transition">
-                <span class="text-base">💧</span>
-                <span>Tưới nước bài học (+50 EXP Lên Cấp)</span>
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- MODAL: QUẢN TRỊ DATABASE (CRUD ENGINE) -->
-  <div id="db-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-slate-900 border border-garden-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-2xl shadow-2xl space-y-5">
-      <div class="flex items-center justify-between border-b pb-3 border-slate-100 dark:border-slate-800">
-        <div class="flex items-center gap-2">
-          <i class="ph-bold ph-database text-xl text-garden-600"></i>
-          <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Quản Trị Cơ Sở Dữ Liệu (CRUD Database)</h3>
-        </div>
-        <button onclick="closeDatabaseManager()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold">✕</button>
-      </div>
-
-      <!-- Công cụ Export / Import JSON -->
-      <div class="flex flex-wrap gap-3 p-4 bg-garden-50/70 dark:bg-slate-800/70 rounded-2xl border border-garden-100 dark:border-slate-700 text-xs">
-        <button onclick="exportDatabaseJSON()" class="px-4 py-2 rounded-xl bg-garden-700 text-white font-bold flex items-center gap-1.5 shadow-sm">
-          <i class="ph-bold ph-download-simple"></i> Xuất Database ra file JSON
-        </button>
-        <button onclick="resetToDefaultDatabase()" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-bold hover:bg-white transition">
-          Khôi phục dữ liệu gốc
-        </button>
-      </div>
-
-      <!-- Danh sách bài học cho phép Xóa/Sửa -->
-      <div class="space-y-2">
-        <h4 class="text-xs font-bold text-slate-500 uppercase">Danh sách bài học trong CSDL:</h4>
-        <div id="db-lessons-list" class="max-h-60 overflow-y-auto space-y-2 pr-1 text-xs"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: THÊM BÀI HỌC MỚI (CREATE LESSON) -->
-  <div id="create-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-slate-900 border border-garden-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-lg shadow-2xl space-y-4">
-      <div class="flex items-center justify-between border-b pb-3 border-slate-100 dark:border-slate-800">
-        <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Thêm Bài Học Mới Vào Database</h3>
-        <button onclick="closeCreateLessonModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold">✕</button>
-      </div>
-
-      <form onsubmit="handleCreateLesson(event)" class="space-y-3 text-xs">
-        <div>
-          <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Tiêu đề bài học:</label>
-          <input type="text" id="new-lesson-title" required class="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:outline-none focus:border-garden-500">
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">YouTube ID:</label>
-            <input type="text" id="new-lesson-ytid" placeholder="VD: LBOT2uEZgE0" required class="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:outline-none focus:border-garden-500">
-          </div>
-          <div>
-            <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Danh mục:</label>
-            <select id="new-lesson-category" class="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:outline-none focus:border-garden-500">
-              <option value="coffee">Tưới nhanh (3–5p)</option>
-              <option value="lunch">Chăm lá (10–15p)</option>
-              <option value="chill">Bón rễ (15–20p)</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Bài học rút ra (Takeaway):</label>
-          <input type="text" id="new-lesson-takeaway" required class="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:outline-none focus:border-garden-500">
-        </div>
-        <button type="submit" class="w-full py-3 rounded-xl bg-garden-600 hover:bg-garden-700 text-white font-bold transition">
-          Lưu bài học vào CSDL
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- POPOVER TRA TỪ 1 CHẠM -->
-  <div id="word-popover" class="fixed hidden z-50 bg-white dark:bg-slate-800 border border-garden-200 dark:border-slate-700 shadow-2xl rounded-2xl p-4 w-72 transition-all">
-    <div class="flex items-center justify-between">
-      <h4 id="popover-word" class="text-sm font-extrabold text-garden-800 dark:text-garden-300">Word</h4>
-      <button onclick="closeWordPopover()" class="text-slate-400 hover:text-slate-600 text-xs font-bold">✕</button>
-    </div>
-    <p id="popover-ipa" class="text-xs font-mono text-slate-400 mt-0.5">/ipa/</p>
-    <p id="popover-meaning" class="text-xs text-slate-700 dark:text-slate-200 mt-2 leading-relaxed font-medium">Nghĩa công sở...</p>
-    <button onclick="saveCurrentWordToBank()" id="btn-save-popover-word" class="w-full mt-3 py-1.5 rounded-xl bg-garden-50 hover:bg-garden-100 dark:bg-slate-700 text-garden-900 dark:text-garden-200 text-xs font-bold flex items-center justify-center gap-1.5 transition">
-      <i class="ph-bold ph-bookmark-simple"></i> Lưu vào Lá Từ Vựng
-    </button>
-  </div>
-
-  <!-- MODAL BỘ SƯU TẬP LÁ TỪ VỰNG -->
-  <div id="word-bank-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-slate-900 border border-garden-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-lg shadow-2xl space-y-4">
-      <div class="flex items-center justify-between border-b pb-3 border-slate-100 dark:border-slate-800">
-        <div class="flex items-center gap-2">
-          <span class="text-xl">🍃</span>
-          <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Bộ Sưu Tập Lá Từ Vựng Công Sở</h3>
-        </div>
-        <button onclick="closeWordBank()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold">✕</button>
-      </div>
-
-      <div id="stickers-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-1"></div>
-
-      <p class="text-[11px] text-slate-400 text-center italic font-medium">"Thu thập từ vựng nuôi dưỡng phản xạ tự nhiên của bạn!"</p>
-    </div>
-  </div>
-
-  <!-- MODAL XEM CHI TIẾT CẤP ĐỘ CÂY -->
-  <div id="garden-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-slate-900 border border-garden-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl text-center space-y-4">
-      <div class="flex justify-end">
-        <button onclick="closeGardenModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 font-bold">✕</button>
-      </div>
-      <div id="modal-plant-icon" class="text-6xl plant-bounce my-2">🌱</div>
-      <h3 id="modal-plant-title" class="text-lg font-black text-slate-900 dark:text-white font-display">Cấp 2: Chồi Non Văn Phòng</h3>
-      <p id="modal-plant-desc" class="text-xs text-slate-500 leading-relaxed">Cây đã bắt đầu đâm chồi! Hãy duy trì việc học mỗi ngày để cây phát triển sum suê nhé.</p>
-      
-      <div class="bg-garden-50 dark:bg-slate-800 p-4 rounded-2xl border border-garden-200/60 dark:border-slate-700">
-        <div class="flex justify-between text-xs font-bold mb-1.5">
-          <span class="text-garden-800 dark:text-garden-300">Tiến trình giọt nước:</span>
-          <span id="modal-exp-count" class="font-mono text-garden-600">40 / 100 EXP</span>
-        </div>
-        <div class="w-full bg-garden-200/50 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
-          <div id="modal-exp-bar" class="bg-garden-500 h-full rounded-full transition-all duration-500" style="width: 40%"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOAST LÊN CẤP & CHỮA LÀNH -->
-  <div id="growth-toast" class="fixed bottom-6 right-6 z-50 bg-garden-700 text-white px-5 py-4 rounded-3xl shadow-xl hidden flex items-center gap-3 transition">
-    <span class="text-3xl" id="toast-icon">🪴</span>
-    <div>
-      <p class="text-xs font-black uppercase tracking-wider" id="toast-title">Đã tưới nước thành công! (+50 EXP)</p>
-      <p class="text-[11px] text-garden-100 font-medium" id="toast-sub">Cây của bạn đang lớn dần từng ngày. Thật tuyệt vời ✨</p>
-    </div>
-  </div>
-
-  <!-- YOUTUBE IFRAME PLAYER API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-
-  <script>
-    // BIẾN TOÀN CỤC CHỨA CƠ SỞ DỮ LIỆU
-    let appData = null;
-
-    const PLANT_STAGES = [
-      { level: 1, name: "Hạt Mầm", icon: "🌰", maxExp: 50, desc: "Một hạt mầm nhỏ vừa gieo xuống đất ẩm. Hãy bắt đầu tưới tắm từ vựng nhé!" },
-      { level: 2, name: "Chồi Non", icon: "🌱", maxExp: 100, desc: "Chồi non đã nhú lên 2 chiếc lá xanh đầu tiên. Bạn đang tạo thói quen rất tốt!" },
-      { level: 3, name: "Sen Đá Văn Phòng", icon: "🌿", maxExp: 200, desc: "Cây phát triển cứng cáp trên góc bàn làm việc, tự tin ứng biến tình huống." },
-      { level: 4, name: "Cây Trầu Bà", icon: "🪴", maxExp: 350, desc: "Tán lá sum sê, phản xạ tiếng Anh của bạn đã trở nên tự nhiên hơn mỗi ngày." },
-      { level: 5, name: "Đại Thụ Tiếng Anh", icon: "🌳", maxExp: 500, desc: "Bạn đã đạt cấp độ cao nhất! Giao tiếp công sở lưu loát và tự tin như tiếng mẹ đẻ." }
-    ];
-
-    let ytPlayer = null;
-    let currentLesson = null;
-    let currentLineIndex = -1;
-    let isLoopingLine = false;
-    let syncInterval = null;
-    let savedStickers = JSON.parse(localStorage.getItem('biz_stickers') || '[]');
-    let currentSelectedWord = null;
-
-    let plantState = JSON.parse(localStorage.getItem('biz_plant_state') || JSON.stringify({
-      level: 2,
-      exp: 40,
-      streak: 3
-    }));
-
-    // KHỞI CHẠY BẰNG CÁCH GỌI FETCH ĐẾN DATABASE.JSON
-    async function initApp() {
-      initTheme();
-      updatePlantUI();
-      updateStickerBadge();
-      
-      const dbStatusBadge = document.getElementById('db-status-badge');
-
-      // Kiểm tra xem người dùng có database đã tùy biến lưu trong Cache không
-      const customDb = localStorage.getItem('biz_custom_database');
-      if (customDb) {
-        try {
-          appData = JSON.parse(customDb);
-          dbStatusBadge.innerText = "Đã nạp CSDL tùy biến (Local Engine)";
-          renderMenuCards('all');
-          return;
-        } catch (e) {
-          console.error("Lỗi phân tích DB tùy biến:", e);
-        }
-      }
-
-      // GỌI FETCH CHUẨN ĐẾN DATABASE.JSON NGOÀI FILE
-      try {
-        const response = await fetch('./database.json');
-        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-        appData = await response.json();
-        dbStatusBadge.innerText = "Đã kết nối database.json qua fetch()";
-      } catch (err) {
-        console.warn("fetch() database.json thất bại, kích hoạt cơ chế Fallback:", err);
-        dbStatusBadge.innerText = "Chế độ dự phòng";
-        // Dữ liệu dự phòng để không bao giờ bị trắng trang
-        appData = {
-          menu_categories: [
-            { id: "coffee", name: "Tưới nhanh" },
-            { id: "lunch", name: "Chăm lá" },
-            { id: "chill", name: "Bón rễ" }
-          ],
-          lessons: [
-            {
-              id: "les-101",
-              category: "coffee",
-              title: "Nghệ thuật từ chối khéo deadline bất khả thi",
-              youtubeId: "LBOT2uEZgE0",
-              duration: "4 phút",
-              level: "Hạt mầm 🌱",
-              tags: ["#BịDíDeadline", "#TừChốiKhéoSếp"],
-              takeaway: "Ghi nhận ưu tiên của sếp trước khi đề xuất dời giờ hoặc chia nhỏ việc.",
-              transcript: [
-                { start: 185, end: 195, speaker: "Manager", en: "Can you finish this report by 3 PM today?", vi: "Em có thể xong bản báo cáo này trước 3 giờ chiều nay được không?" },
-                { start: 196, end: 206, speaker: "You", en: "I'd love to help, but given current scope, rushing might compromise quality.", vi: "Em rất muốn hỗ trợ, nhưng làm vội có thể ảnh hưởng chất lượng." }
-              ],
-              roleplay: {
-                scenario: "Sếp nhắn gấp: 'Can you finish this report by 3 PM?'",
-                options: [{ tone: "Đề xuất giờ mới", reply: "I'm tied up until 2 PM. Could I deliver it by 5 PM?", tip: "Nêu lý do và giờ cụ thể." }]
-              }
-            }
-          ],
-          glossary: {}
-        };
-      }
-
-      renderMenuCards('all');
-    }
-
-    function initTheme() {
-      const saved = localStorage.getItem('biz_theme');
-      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        document.getElementById('theme-icon').className = 'ph-bold ph-sun text-base text-amber-400';
-      } else {
-        document.documentElement.classList.remove('dark');
-        document.getElementById('theme-icon').className = 'ph-bold ph-moon text-base';
-      }
-    }
-
-    function toggleDarkMode() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('biz_theme', isDark ? 'dark' : 'light');
-      document.getElementById('theme-icon').className = isDark ? 'ph-bold ph-sun text-base text-amber-400' : 'ph-bold ph-moon text-base';
-    }
-
-    function updatePlantUI() {
-      const curStage = PLANT_STAGES.find(s => s.level === plantState.level) || PLANT_STAGES[0];
-      const percent = Math.min(100, Math.round((plantState.exp / curStage.maxExp) * 100));
-
-      document.getElementById('nav-plant-icon').innerText = curStage.icon;
-      document.getElementById('nav-plant-level-name').innerText = `Cấp ${curStage.level}: ${curStage.name}`;
-      document.getElementById('nav-exp-bar').style.width = `${percent}%`;
-
-      document.getElementById('hero-plant-display').innerText = curStage.icon;
-      document.getElementById('hero-plant-name').innerText = `${curStage.name} (Cấp ${curStage.level})`;
-      document.getElementById('hero-exp-bar').style.width = `${percent}%`;
-      document.getElementById('hero-exp-text').innerText = `${plantState.exp} / ${curStage.maxExp} EXP`;
-
-      document.getElementById('modal-plant-icon').innerText = curStage.icon;
-      document.getElementById('modal-plant-title').innerText = `Cấp ${curStage.level}: ${curStage.name}`;
-      document.getElementById('modal-plant-desc').innerText = curStage.desc;
-      document.getElementById('modal-exp-count').innerText = `${plantState.exp} / ${curStage.maxExp} EXP`;
-      document.getElementById('modal-exp-bar').style.width = `${percent}%`;
-    }
-
-    function finishAndWaterPlant() {
-      const expGain = 50;
-      plantState.exp += expGain;
-
-      let curStage = PLANT_STAGES.find(s => s.level === plantState.level);
-      let didLevelUp = false;
-
-      if (plantState.exp >= curStage.maxExp && plantState.level < PLANT_STAGES.length) {
-        plantState.level += 1;
-        plantState.exp = plantState.exp - curStage.maxExp;
-        didLevelUp = true;
-      }
-
-      localStorage.setItem('biz_plant_state', JSON.stringify(plantState));
-      updatePlantUI();
-
-      const toast = document.getElementById('growth-toast');
-      const toastTitle = document.getElementById('toast-title');
-      const toastSub = document.getElementById('toast-sub');
-      const toastIcon = document.getElementById('toast-icon');
-
-      curStage = PLANT_STAGES.find(s => s.level === plantState.level);
-
-      if (didLevelUp) {
-        toastTitle.innerText = `Chúc mừng! Cây đã tiến hóa lên ${curStage.name} 🎉`;
-        toastSub.innerText = `Bạn vừa được thăng cấp ${curStage.level}. Phản xạ tiếng Anh đang nở rộ!`;
-        toastIcon.innerText = curStage.icon;
-      } else {
-        toastTitle.innerText = `Đã tưới nước thành công! (+50 EXP) 💧`;
-        toastSub.innerText = `Cây đã hấp thụ thêm giọt nước dinh dưỡng hôm nay!`;
-        toastIcon.innerText = "🌱";
-      }
-
-      toast.classList.remove('hidden');
-      setTimeout(() => {
-        toast.classList.add('hidden');
-      }, 4500);
-
-      goToHome();
-    }
-
-    // RENDER MENU BÀI HỌC TỪ DATABASE
-    function renderMenuCards(cat) {
-      const container = document.getElementById('lesson-cards-container');
-      container.innerHTML = '';
-      if (!appData || !appData.lessons) return;
-
-      const totalEl = document.getElementById('dashboard-total-lessons');
-      if (totalEl) totalEl.innerText = `${appData.lessons.length} Bài`;
-
-      const list = (cat === 'all') ? appData.lessons : appData.lessons.filter(l => l.category === cat);
-
-      if (list.length === 0) {
-        container.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400 text-sm">Chưa có bài học nào trong danh mục này.</div>`;
-        return;
-      }
-
-      list.forEach(lesson => {
-        const card = document.createElement('div');
-        card.className = "bg-white dark:bg-slate-900 rounded-3xl p-5 border border-garden-100/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group";
-
-        const tagsHtml = (lesson.tags || []).map(t => `
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-garden-50 dark:bg-slate-800 text-garden-800 dark:text-garden-300 border border-garden-200/50 dark:border-slate-700">
-            ${t}
-          </span>
-        `).join('');
-
-        card.innerHTML = `
-          <div>
-            <div class="relative rounded-2xl overflow-hidden aspect-video bg-slate-900 mb-4 shadow-inner">
-              <img src="https://img.youtube.com/vi/${lesson.youtubeId}/hqdefault.jpg" alt="${lesson.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-              <div class="absolute top-2 left-2">
-                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-white">
-                  ${lesson.level || '🌱 Hạt mầm'}
-                </span>
-              </div>
-              <span class="absolute bottom-2 right-2 text-[10px] font-bold px-2 py-0.5 rounded-md bg-black/80 text-white font-mono">
-                ${lesson.duration || '5 phút'}
-              </span>
-            </div>
-
-            <div class="flex flex-wrap gap-1 mb-2">
-              ${tagsHtml}
-            </div>
-
-            <h3 class="text-sm font-extrabold text-slate-900 dark:text-white group-hover:text-garden-700 dark:group-hover:text-garden-300 transition leading-snug">
-              ${lesson.title}
-            </h3>
-            
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2 leading-relaxed font-medium">
-              💡 ${lesson.takeaway || ''}
-            </p>
-          </div>
-
-          <div class="mt-4 flex items-center gap-2">
-            <button onclick="openStudyRoom('${lesson.id}')" class="flex-1 py-2.5 rounded-2xl bg-garden-50 hover:bg-garden-600 dark:bg-slate-800 dark:hover:bg-garden-600 text-garden-900 hover:text-white dark:text-slate-200 dark:hover:text-white text-xs font-bold transition flex items-center justify-center gap-2">
-              <span>Học ngay</span>
-              <i class="ph-bold ph-arrow-right"></i>
-            </button>
-            <button onclick="deleteLesson('${lesson.id}')" title="Xóa khỏi Database" class="p-2.5 rounded-2xl border border-red-200 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition">
-              <i class="ph-bold ph-trash"></i>
-            </button>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    function filterCategory(cat) {
-      ['all', 'coffee', 'lunch', 'chill'].forEach(c => {
-        const btn = document.getElementById(`filter-btn-${c}`);
-        if (c === cat) {
-          btn.className = "px-4 py-2 rounded-2xl text-xs font-bold transition bg-garden-700 text-white shadow-sm flex items-center gap-1.5";
-        } else {
-          btn.className = "px-4 py-2 rounded-2xl text-xs font-bold transition border border-garden-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-garden-400 flex items-center gap-1.5";
-        }
-      });
-      renderMenuCards(cat);
-    }
-
-    // CÁC THAO TÁC CRUD TRÊN DATABASE
-    function openDatabaseManager() {
-      const modal = document.getElementById('db-modal');
-      const listEl = document.getElementById('db-lessons-list');
-      listEl.innerHTML = '';
-
-      if (appData && appData.lessons) {
-        appData.lessons.forEach(l => {
-          const row = document.createElement('div');
-          row.className = "flex items-center justify-between p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50";
-          row.innerHTML = `
-            <div>
-              <strong class="text-slate-800 dark:text-slate-200 block">${l.title}</strong>
-              <span class="text-[10px] text-slate-400 font-mono">ID: ${l.id} • ${l.duration}</span>
-            </div>
-            <button onclick="deleteLesson('${l.id}')" class="px-2 py-1 text-red-500 hover:bg-red-100 rounded-lg font-bold">Xóa</button>
-          `;
-          listEl.appendChild(row);
-        });
-      }
-
-      modal.classList.remove('hidden');
-    }
-
-    function closeDatabaseManager() {
-      document.getElementById('db-modal').classList.add('hidden');
-    }
-
-    function openCreateLessonModal() {
-      document.getElementById('create-modal').classList.remove('hidden');
-    }
-
-    function closeCreateLessonModal() {
-      document.getElementById('create-modal').classList.add('hidden');
-    }
-
-    function handleCreateLesson(e) {
-      e.preventDefault();
-      const title = document.getElementById('new-lesson-title').value;
-      const youtubeId = document.getElementById('new-lesson-ytid').value;
-      const category = document.getElementById('new-lesson-category').value;
-      const takeaway = document.getElementById('new-lesson-takeaway').value;
-
-      const newLesson = {
-        id: `les-${Date.now()}`,
-        category: category,
-        title: title,
-        youtubeId: youtubeId,
-        duration: "5 phút",
-        level: "Chồi non 🌿",
-        tags: ["#ThựcHànhMới"],
-        takeaway: takeaway,
-        transcript: [
-          { start: 0, end: 10, speaker: "Partner", en: "Let's review this new task together.", vi: "Chúng ta cùng duyệt qua đầu việc mới này nhé." },
-          { start: 11, end: 20, speaker: "You", en: "Sounds great, I'm ready to proceed.", vi: "Tuyệt vời, tôi đã sẵn sàng thực hiện." }
-        ],
-        roleplay: {
-          scenario: "Đồng nghiệp đề xuất: 'Let's review this new task!'",
-          options: [{ tone: "Sẵn sàng", reply: "Sounds great, let's dive in.", tip: "Thể hiện tinh thần hợp tác tích cực." }]
-        }
-      };
-
-      appData.lessons.unshift(newLesson);
-      saveCustomDatabase();
-      renderMenuCards('all');
-      closeCreateLessonModal();
-      alert("Đã thêm bài học mới thành công vào Database!");
-    }
-
-    function deleteLesson(id) {
-      if (!confirm("Bạn có chắc chắn muốn xóa bài học này khỏi Database?")) return;
-      appData.lessons = appData.lessons.filter(l => l.id !== id);
-      saveCustomDatabase();
-      renderMenuCards('all');
-      openDatabaseManager();
-    }
-
-    function saveCustomDatabase() {
-      localStorage.setItem('biz_custom_database', JSON.stringify(appData));
-    }
-
-    function resetToDefaultDatabase() {
-      localStorage.removeItem('biz_custom_database');
-      closeDatabaseManager();
-      location.reload();
-    }
-
-    function exportDatabaseJSON() {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
-      const dlAnchor = document.createElement('a');
-      dlAnchor.setAttribute("href", dataStr);
-      dlAnchor.setAttribute("download", "database.json");
-      dlAnchor.click();
-    }
-
-    // MỞ PHÒNG HỌC
-    function openStudyRoom(lessonId) {
-      currentLesson = appData.lessons.find(l => l.id === lessonId);
-      if (!currentLesson) return;
-
-      document.getElementById('menu-view').classList.add('hidden');
-      document.getElementById('study-room-view').classList.remove('hidden');
-
-      document.getElementById('study-badge-level').innerText = currentLesson.level || '🌱 Hạt mầm';
-      document.getElementById('study-badge-duration').innerText = currentLesson.duration || '5 phút';
-
-      renderChatBubbles();
-      renderRoleplayChallenge();
-
-      const wrapper = document.getElementById('video-wrapper');
-      const startSec = (currentLesson.transcript && currentLesson.transcript[0]) ? currentLesson.transcript[0].start : 0;
-      wrapper.innerHTML = `
-        <iframe 
-          id="active-yt-iframe"
-          class="absolute top-0 left-0 w-full h-full border-0" 
-          src="https://www.youtube-nocookie.com/embed/${currentLesson.youtubeId}?enablejsapi=1&start=${startSec}&rel=0&modestbranding=1&playsinline=1"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
-      `;
-
-      setTimeout(() => {
-        if (window.YT && YT.Player) {
-          try {
-            ytPlayer = new YT.Player('active-yt-iframe', {
-              events: { onError: (e) => console.log('YT error:', e) }
-            });
-          } catch(e) {
-            console.log('Player defer:', e);
-          }
-        }
-      }, 500);
-
-      startSubtitlesSync();
-    }
-
-    function goToHome() {
-      if (ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
-      if (syncInterval) clearInterval(syncInterval);
-      document.getElementById('study-room-view').classList.add('hidden');
-      document.getElementById('menu-view').classList.remove('hidden');
-    }
-
-    function startSubtitlesSync() {
-      if (syncInterval) clearInterval(syncInterval);
-      syncInterval = setInterval(() => {
-        if (!ytPlayer || !ytPlayer.getCurrentTime || !currentLesson.transcript) return;
-        const currentTime = ytPlayer.getCurrentTime();
-
-        const activeIdx = currentLesson.transcript.findIndex(t => currentTime >= t.start && currentTime <= t.end);
-        if (activeIdx !== -1 && activeIdx !== currentLineIndex) {
-          highlightChatBubble(activeIdx);
-        }
-
-        if (isLoopingLine && currentLineIndex !== -1) {
-          const currentSub = currentLesson.transcript[currentLineIndex];
-          if (currentTime >= currentSub.end) {
-            ytPlayer.seekTo(currentSub.start, true);
-          }
-        }
-      }, 250);
-    }
-
-    function renderChatBubbles() {
-      const container = document.getElementById('chat-bubbles-container');
-      container.innerHTML = '';
-      if (!currentLesson.transcript) return;
-
-      currentLesson.transcript.forEach((t, idx) => {
-        const isYou = (t.speaker === 'You');
-        const bubble = document.createElement('div');
-        bubble.id = `chat-bubble-${idx}`;
-        
-        const alignStyle = isYou 
-          ? "ml-4 bg-garden-50/70 dark:bg-garden-950/30 border-garden-200/80 dark:border-garden-800" 
-          : "mr-4 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800";
-
-        bubble.className = `p-3.5 rounded-2xl border text-xs transition-all duration-200 cursor-pointer space-y-1.5 ${alignStyle}`;
-        bubble.onclick = () => jumpToTimestamp(t.start);
-
-        const wordsHtml = t.en.split(' ').map(w => {
-          const clean = w.replace(/[^a-zA-Z]/g, '').toLowerCase();
-          return `<span onclick="event.stopPropagation(); handleWordClick(event, '${clean}', '${w}')" class="hover:text-garden-700 hover:underline cursor-pointer font-bold">${w}</span>`;
-        }).join(' ');
-
-        bubble.innerHTML = `
-          <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span class="font-extrabold ${isYou ? 'text-garden-700 dark:text-garden-400' : 'text-earth dark:text-amber-400'} font-sans">
-              ${isYou ? '🌱 Bạn (You)' : t.speaker}:
-            </span>
-            <span>${formatTime(t.start)}</span>
-          </div>
-
-          <p class="text-xs text-slate-900 dark:text-slate-100 leading-relaxed font-sans">${wordsHtml}</p>
-          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium italic">${t.vi}</p>
-
-          <div class="flex items-center justify-between pt-1">
-            <button onclick="event.stopPropagation(); startShadowingLine(${idx}, ${t.start}, ${t.end})" class="text-[11px] text-garden-700 dark:text-garden-300 font-bold flex items-center gap-1 hover:underline">
-              <i class="ph-bold ph-microphone"></i> Luyện nhại giọng (Shadowing)
-            </button>
-            <span id="shadow-countdown-${idx}" class="text-[10px] font-bold text-garden-600 hidden"></span>
-          </div>
-        `;
-        container.appendChild(bubble);
-      });
-    }
-
-    function highlightChatBubble(idx) {
-      if (currentLineIndex !== -1) {
-        const prev = document.getElementById(`chat-bubble-${currentLineIndex}`);
-        if (prev) prev.classList.remove('chat-bubble-active');
-      }
-      currentLineIndex = idx;
-      const cur = document.getElementById(`chat-bubble-${idx}`);
-      if (cur) {
-        cur.classList.add('chat-bubble-active');
-        cur.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    }
-
-    function jumpToTimestamp(sec) {
-      if (ytPlayer && ytPlayer.seekTo) {
-        ytPlayer.seekTo(sec, true);
-        ytPlayer.playVideo();
-      }
-    }
-
-    function formatTime(s) {
-      const min = Math.floor(s / 60);
-      const sec = Math.floor(s % 60);
-      return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-    }
-
-    function setPlaySpeed(rate) {
-      if (ytPlayer && ytPlayer.setPlaybackRate) {
-        ytPlayer.setPlaybackRate(rate);
-      }
-      [0.75, 1.0, 1.25].forEach(r => {
-        const btn = document.getElementById(`spd-${r.toString().replace('.', '')}`);
-        if (r === rate) {
-          btn.className = "px-2.5 py-1 rounded-xl text-xs font-bold bg-garden-700 text-white transition";
-        } else {
-          btn.className = "px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:bg-garden-50 dark:hover:bg-slate-800 transition";
-        }
-      });
-    }
-
-    function toggleLoopCurrentLine() {
-      isLoopingLine = !isLoopingLine;
-      const btn = document.getElementById('btn-loop-line');
-      btn.className = isLoopingLine 
-        ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-garden-700 text-white flex items-center gap-1.5 transition"
-        : "px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:border-garden-400 flex items-center gap-1.5 transition text-slate-700 dark:text-slate-300";
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (document.getElementById('study-room-view').classList.contains('hidden')) return;
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
-      if (e.code === 'Space') {
-        e.preventDefault();
-        if (ytPlayer && ytPlayer.getPlayerState) {
-          const state = ytPlayer.getPlayerState();
-          if (state === 1) ytPlayer.pauseVideo();
-          else ytPlayer.playVideo();
-        }
-      } else if (e.code === 'ArrowLeft') {
-        e.preventDefault();
-        if (ytPlayer && ytPlayer.getCurrentTime) {
-          ytPlayer.seekTo(Math.max(0, ytPlayer.getCurrentTime() - 5), true);
-        }
-      }
-    });
-
-    function startShadowingLine(idx, start, end) {
-      if (!ytPlayer) return;
-      ytPlayer.seekTo(start, true);
-      ytPlayer.playVideo();
-
-      const duration = (end - start) * 1000;
-      setTimeout(() => {
-        ytPlayer.pauseVideo();
-        const badge = document.getElementById(`shadow-countdown-${idx}`);
-        if (!badge) return;
-        badge.classList.remove('hidden');
-        
-        let secondsLeft = 3;
-        badge.innerText = `🎙️ Lặp lại ngay: ${secondsLeft}s`;
-        const timer = setInterval(() => {
-          secondsLeft--;
-          if (secondsLeft > 0) {
-            badge.innerText = `🎙️ Lặp lại ngay: ${secondsLeft}s`;
-          } else {
-            clearInterval(timer);
-            badge.classList.add('hidden');
-          }
-        }, 1000);
-      }, duration);
-    }
-
-    function renderRoleplayChallenge() {
-      const scenarioEl = document.getElementById('roleplay-scenario');
-      const container = document.getElementById('roleplay-options-container');
-      
-      scenarioEl.innerText = (currentLesson.roleplay && currentLesson.roleplay.scenario) ? currentLesson.roleplay.scenario : 'Thực hành phản xạ';
-      container.innerHTML = '';
-
-      if (currentLesson.roleplay && currentLesson.roleplay.options) {
-        currentLesson.roleplay.options.forEach(opt => {
-          const box = document.createElement('div');
-          box.className = "p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-garden-200/60 dark:border-slate-700 text-xs space-y-1.5 shadow-sm";
-          box.innerHTML = `
-            <div class="flex items-center justify-between">
-              <span class="font-extrabold text-garden-800 dark:text-garden-300">${opt.tone}</span>
-              <button onclick="speakText('${opt.reply.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-garden-600 transition p-1"><i class="ph-bold ph-speaker-high text-base"></i></button>
-            </div>
-            <p class="text-slate-800 dark:text-slate-100 font-bold leading-relaxed">"${opt.reply}"</p>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium italic">💡 ${opt.tip}</p>
-          `;
-          container.appendChild(box);
-        });
-      }
-    }
-
-    function speakText(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'en-US';
-        window.speechSynthesis.speak(u);
-      }
-    }
-
-    function handleWordClick(event, cleanWord, rawWord) {
-      const popover = document.getElementById('word-popover');
-      const info = (appData.glossary && appData.glossary[cleanWord]) ? appData.glossary[cleanWord] : {
-        ipa: `/${cleanWord}/`,
-        vi: `Thuật ngữ chuyên ngành dùng trong tình huống trao đổi công sở.`
-      };
-
-      currentSelectedWord = {
-        word: rawWord,
-        ipa: info.ipa,
-        vi: info.vi
-      };
-
-      document.getElementById('popover-word').innerText = rawWord;
-      document.getElementById('popover-ipa').innerText = info.ipa;
-      document.getElementById('popover-meaning').innerText = info.vi;
-
-      popover.style.left = `${Math.min(window.innerWidth - 300, event.clientX + 10)}px`;
-      popover.style.top = `${Math.min(window.innerHeight - 200, event.clientY + 10)}px`;
-      popover.classList.remove('hidden');
-    }
-
-    function closeWordPopover() {
-      document.getElementById('word-popover').classList.add('hidden');
-    }
-
-    function saveCurrentWordToBank() {
-      if (!currentSelectedWord) return;
-      if (!savedStickers.some(s => s.word.toLowerCase() === currentSelectedWord.word.toLowerCase())) {
-        savedStickers.push(currentSelectedWord);
-        localStorage.setItem('biz_stickers', JSON.stringify(savedStickers));
-        updateStickerBadge();
-      }
-      closeWordPopover();
-    }
-
-    function removeSticker(idx) {
-      savedStickers.splice(idx, 1);
-      localStorage.setItem('biz_stickers', JSON.stringify(savedStickers));
-      updateStickerBadge();
-      openWordBank();
-    }
-
-    function openWordBank() {
-      const modal = document.getElementById('word-bank-modal');
-      const container = document.getElementById('stickers-container');
-      container.innerHTML = '';
-
-      if (savedStickers.length === 0) {
-        container.innerHTML = `<p class="col-span-2 text-xs text-slate-400 text-center py-6 font-medium">Chưa có lá từ vựng nào. Hãy chạm vào các từ trong bài học để lưu nhé!</p>`;
-      } else {
-        savedStickers.forEach((s, idx) => {
-          const item = document.createElement('div');
-          item.className = "p-3 rounded-2xl bg-garden-50/70 dark:bg-slate-800 border border-garden-200/50 dark:border-slate-700 text-xs space-y-1 relative";
-          item.innerHTML = `
-            <div class="flex items-center justify-between">
-              <strong class="text-garden-900 dark:text-garden-300 font-bold">${s.word}</strong>
-              <div class="flex items-center gap-1.5">
-                <button onclick="speakText('${s.word}')" class="text-slate-400 hover:text-garden-600"><i class="ph-bold ph-speaker-high"></i></button>
-                <button onclick="removeSticker(${idx})" class="text-slate-300 hover:text-red-500 text-[10px]">✕</button>
-              </div>
-            </div>
-            <p class="text-[10px] text-slate-400 font-mono">${s.ipa}</p>
-            <p class="text-[11px] text-slate-700 dark:text-slate-300 font-medium">${s.vi}</p>
-          `;
-          container.appendChild(item);
-        });
-      }
-
-      modal.classList.remove('hidden');
-    }
-
-    function closeWordBank() {
-      document.getElementById('word-bank-modal').classList.add('hidden');
-    }
-
-    function updateStickerBadge() {
-      const count = savedStickers.length;
-      document.getElementById('sticker-count').innerText = count;
-      const dashEl = document.getElementById('dashboard-sticker-count');
-      if (dashEl) dashEl.innerText = `${count} Lá`;
-    }
-
-    function openGardenModal() {
-      document.getElementById('garden-modal').classList.remove('hidden');
-    }
-
-    function closeGardenModal() {
-      document.getElementById('garden-modal').classList.add('hidden');
-    }
-
-    document.addEventListener('click', (e) => {
-      const pop = document.getElementById('word-popover');
-      if (!pop.classList.contains('hidden') && !pop.contains(e.target)) {
-        closeWordPopover();
-      }
-    });
-
-    initApp();
-  </script>
-</body>
-</html>
+                <button onclick="setPlaySpeed(0.75)" id="spd-
