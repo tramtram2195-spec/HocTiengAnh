@@ -110,11 +110,6 @@
             "tone": "Tập trung vào giá trị (Value)",
             "reply": "I understand budget constraints are crucial. Let's review the scope to see what we can optimize.",
             "tip": "Không vội hạ giá, hướng khách vào việc tối ưu phạm vi công việc."
-          },
-          {
-            "tone": "Chia nhỏ giai đoạn thanh toán",
-            "reply": "We could split the engagement into two milestones to align with your quarterly cash flow.",
-            "tip": "Giảm áp lực tài chính ngắn hạn cho khách hàng."
           }
         ]
       }
@@ -154,128 +149,6 @@
           }
         ]
       }
-    },
-    {
-      "id": "les-104",
-      "category": "chill",
-      "title": "Kỹ năng ngắt lời khéo léo trong cuộc thảo luận sôi nổi",
-      "youtubeId": "LBOT2uEZgE0",
-      "duration": "15 phút",
-      "level": "Cây xanh 🌳",
-      "tags": ["#NgắtLờiLịchSự", "#ĐiềuPhốiCuộcHọp"],
-      "takeaway": "Sử dụng mẫu câu đệm 'May I jump in here for a second?' để bước vào cuộc hội thoại mượt mà.",
-      "transcript": [
-        {
-          "start": 588,
-          "end": 597,
-          "speaker": "Colleague",
-          "en": "We need to reallocate the entire budget immediately to marketing.",
-          "vi": "Chúng ta cần tái phân bổ toàn bộ ngân sách ngay lập tức cho tiếp thị."
-        },
-        {
-          "start": 598,
-          "end": 608,
-          "speaker": "You",
-          "en": "Sorry to interrupt, but may I quickly clarify the operational costs first?",
-          "vi": "Xin lỗi vì ngắt lời, nhưng liệu tôi có thể làm rõ chi phí vận hành trước được không?"
-        }
-      ],
-      "roleplay": {
-        "scenario": "Trong cuộc họp, mọi người đang tranh luận lan man ra ngoài chủ đề chính.",
-        "options": [
-          {
-            "tone": "Điều phối khéo léo",
-            "reply": "If I may jump in, let's keep this discussion parked and focus on our core agenda.",
-            "tip": "Dùng 'keep this parked' để ghi nhận ý kiến nhưng không làm loãng họp."
-          }
-        ]
-      }
-    },
-    {
-      "id": "les-105",
-      "category": "lunch",
-      "title": "Phản hồi email trễ hạn & Xoa dịu sự khó chịu của đối tác",
-      "youtubeId": "LBOT2uEZgE0",
-      "duration": "12 phút",
-      "level": "Chồi non 🌿",
-      "tags": ["#EmailCôngSở", "#XửLýKhủngHoảng"],
-      "takeaway": "Thay vì 'Sorry for the delay', hãy dùng 'Thank you for your patience' để tạo tâm thế tích cực.",
-      "transcript": [
-        {
-          "start": 450,
-          "end": 460,
-          "speaker": "Partner",
-          "en": "We were expecting this contract review two days ago.",
-          "vi": "Chúng tôi đã chờ bản đánh giá hợp đồng này từ hai ngày trước."
-        },
-        {
-          "start": 461,
-          "end": 472,
-          "speaker": "You",
-          "en": "Thank you so much for your patience while our legal team conducted a thorough check.",
-          "vi": "Rất cảm ơn sự kiên nhẫn của anh trong lúc đội ngũ pháp lý của chúng tôi rà soát kỹ lưỡng."
-        },
-        {
-          "start": 473,
-          "end": 485,
-          "speaker": "You",
-          "en": "I have attached the finalized document with all negotiated clauses highlighted.",
-          "vi": "Tôi đã đính kèm văn bản hoàn thiện với các điều khoản đã thỏa thuận được làm nổi bật."
-        }
-      ],
-      "roleplay": {
-        "scenario": "Khách hàng nhắn phàn nàn: 'Why hasn't the proposal been sent yet?'",
-        "options": [
-          {
-            "tone": "Trấn an chuyên nghiệp",
-            "reply": "Thank you for following up. We are finalizing the last pricing tier and will send it by 4 PM today.",
-            "tip": "Cảm ơn vì đã nhắc nhở và cam kết ngay mốc thời gian hoàn thành."
-          }
-        ]
-      }
-    },
-    {
-      "id": "les-106",
-      "category": "chill",
-      "title": "Think Fast, Talk Smart: Phản xạ khi nhận câu hỏi bất ngờ",
-      "youtubeId": "LBOT2uEZgE0",
-      "duration": "16 phút",
-      "level": "Cây xanh 🌳",
-      "tags": ["#PhảnXạTựNhiên", "#ThuyếtTrình"],
-      "takeaway": "Áp dụng cấu trúc 'What - So What - Now What' để câu trả lời luôn có trọng tâm và mạch lạc.",
-      "transcript": [
-        {
-          "start": 120,
-          "end": 130,
-          "speaker": "Board",
-          "en": "Why should we approve your department budget increase this quarter?",
-          "vi": "Tại sao chúng tôi nên phê duyệt tăng ngân sách cho phòng ban của bạn quý này?"
-        },
-        {
-          "start": 131,
-          "end": 142,
-          "speaker": "You",
-          "en": "The key driver is automation tooling, which directly cuts 30% of manual processing time.",
-          "vi": "Yếu tố cốt lõi là công cụ tự động hóa, giúp cắt giảm trực tiếp 30% thời gian xử lý thủ công."
-        },
-        {
-          "start": 143,
-          "end": 155,
-          "speaker": "You",
-          "en": "Moving forward, this allows our consultants to take on double the client volume.",
-          "vi": "Về lâu dài, điều này cho phép các chuyên viên của chúng tôi tiếp nhận lượng khách hàng gấp đôi."
-        }
-      ],
-      "roleplay": {
-        "scenario": "Trong cuộc họp công ty, ban lãnh đạo hỏi bất chợt: 'What is your perspective on this initiative?'",
-        "options": [
-          {
-            "tone": "Mua 2 giây thời gian suy nghĩ",
-            "reply": "That's a very compelling angle. Looking at the operational side, my primary focus would be timeline feasibility.",
-            "tip": "Dùng 'That's a very compelling angle' để có thời gian định hình ý chính."
-          }
-        ]
-      }
     }
   ],
   "glossary": {
@@ -283,9 +156,6 @@
     "compromise": { "ipa": "/ˈkɑːm.prə.maɪz/", "vi": "Làm tổn hại, làm giảm sút chất lượng hoặc độ tin cậy." },
     "prioritize": { "ipa": "/praɪˈɔːr.ə.taɪz/", "vi": "Ưu tiên xử lý việc quan trọng lên hàng đầu." },
     "urgency": { "ipa": "/ˈɝː.dʒən.si/", "vi": "Tính khẩn cấp, vấn đề cần xử lý gấp." },
-    "eventful": { "ipa": "/ɪˈvent.fəl/", "vi": "Nhiều sự kiện sôi nổi, bận rộn tích cực." },
-    "reallocate": { "ipa": "/ˌriːˈæl.ə.keɪt/", "vi": "Tái phân bổ nguồn lực hoặc ngân sách." },
-    "driver": { "ipa": "/ˈdraɪ.vɚ/", "vi": "Yếu tố thúc đẩy, động lực cốt lõi mang lại kết quả kinh doanh." },
-    "perspective": { "ipa": "/pɚˈspek.tɪv/", "vi": "Góc nhìn, quan điểm cá nhân có căn cứ chuyên môn." }
+    "eventful": { "ipa": "/ɪˈvent.fəl/", "vi": "Nhiều sự kiện sôi nổi, bận rộn tích cực." }
   }
 }
